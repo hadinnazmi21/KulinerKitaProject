@@ -12,11 +12,12 @@ const AuthLayout = React.lazy(() => import("./layouts/AuthLayout"));
 const Login = React.lazy(() => import("./pages/auth/Login"));
 const Register = React.lazy(() => import("./pages/auth/Register"));
 const Forgot = React.lazy(() => import("./pages/auth/Forgot"));
+const FAQPage = React.lazy(() => import("./pages/FAQPage"));
+const CareerPage = React.lazy(() => import("./pages/CareerPage"));
+const ContactUsPage = React.lazy(() => import("./pages/ContactUsPage"));
+const CustomerReviewsPage = React.lazy(() => import("./pages/CustomerReviewsPage"));
 import Loading from "./components/Loading";
-import FAQPage from "./pages/FaqPage";
-import CareerPage from "./pages/CareerPage";
-import ContactUsPage from "./pages/ContactUsPage";
-import CustomerReviewsPage from "./pages/CustomerReviewsPage";
+
 
 function App() {
   return (
