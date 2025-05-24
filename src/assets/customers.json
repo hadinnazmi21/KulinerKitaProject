@@ -1,0 +1,212 @@
+[
+  {
+    "customerId": "CUST001",
+    "customerName": "Rizky Pratama",
+    "email": "user1@example.com",
+    "phone": "083140776707",
+    "loyalty": "Silver"
+  },
+  {
+    "customerId": "CUST002",
+    "customerName": "Siti Nurhaliza",
+    "email": "user2@example.com",
+    "phone": "087493265606",
+    "loyalty": "Bronze"
+  },
+  {
+    "customerId": "CUST003",
+    "customerName": "Andi Saputra",
+    "email": "user3@example.com",
+    "phone": "088782009041",
+    "loyalty": "Bronze"
+  },
+  {
+    "customerId": "CUST004",
+    "customerName": "Dewi Lestari",
+    "email": "user4@example.com",
+    "phone": "085878003532",
+    "loyalty": "Gold"
+  },
+  {
+    "customerId": "CUST005",
+    "customerName": "Budi Hartono",
+    "email": "user5@example.com",
+    "phone": "084542026695",
+    "loyalty": "Silver"
+  },
+  {
+    "customerId": "CUST006",
+    "customerName": "Intan Permata",
+    "email": "user6@example.com",
+    "phone": "084730378653",
+    "loyalty": "Silver"
+  },
+  {
+    "customerId": "CUST007",
+    "customerName": "Rian Mahendra",
+    "email": "user7@example.com",
+    "phone": "081697601114",
+    "loyalty": "Bronze"
+  },
+  {
+    "customerId": "CUST008",
+    "customerName": "Yuni Kartika",
+    "email": "user8@example.com",
+    "phone": "089623075267",
+    "loyalty": "Bronze"
+  },
+  {
+    "customerId": "CUST009",
+    "customerName": "Joko Santoso",
+    "email": "user9@example.com",
+    "phone": "088840308263",
+    "loyalty": "Silver"
+  },
+  {
+    "customerId": "CUST010",
+    "customerName": "Tari Ayu",
+    "email": "user10@example.com",
+    "phone": "088192923580",
+    "loyalty": "Bronze"
+  },
+  {
+    "customerId": "CUST011",
+    "customerName": "Reza Ramadhan",
+    "email": "user11@example.com",
+    "phone": "087806806739",
+    "loyalty": "Silver"
+  },
+  {
+    "customerId": "CUST012",
+    "customerName": "Lina Marlina",
+    "email": "user12@example.com",
+    "phone": "081898543626",
+    "loyalty": "Bronze"
+  },
+  {
+    "customerId": "CUST013",
+    "customerName": "Ahmad Fauzi",
+    "email": "user13@example.com",
+    "phone": "082239911375",
+    "loyalty": "Silver"
+  },
+  {
+    "customerId": "CUST014",
+    "customerName": "Melati Putri",
+    "email": "user14@example.com",
+    "phone": "087262134722",
+    "loyalty": "Silver"
+  },
+  {
+    "customerId": "CUST015",
+    "customerName": "Dimas Anggara",
+    "email": "user15@example.com",
+    "phone": "085029587856",
+    "loyalty": "Gold"
+  },
+  {
+    "customerId": "CUST016",
+    "customerName": "Salsa Bilqis",
+    "email": "user16@example.com",
+    "phone": "084064044172",
+    "loyalty": "Bronze"
+  },
+  {
+    "customerId": "CUST017",
+    "customerName": "Aditya Nugraha",
+    "email": "user17@example.com",
+    "phone": "088809120494",
+    "loyalty": "Bronze"
+  },
+  {
+    "customerId": "CUST018",
+    "customerName": "Ayu Lestari",
+    "email": "user18@example.com",
+    "phone": "084192024836",
+    "loyalty": "Gold"
+  },
+  {
+    "customerId": "CUST019",
+    "customerName": "Fajar Siddiq",
+    "email": "user19@example.com",
+    "phone": "085665623013",
+    "loyalty": "Silver"
+  },
+  {
+    "customerId": "CUST020",
+    "customerName": "Nina Zulaikha",
+    "email": "user20@example.com",
+    "phone": "081957361327",
+    "loyalty": "Gold"
+  },
+  {
+    "customerId": "CUST021",
+    "customerName": "Galang Prasetyo",
+    "email": "user21@example.com",
+    "phone": "086866151782",
+    "loyalty": "Gold"
+  },
+  {
+    "customerId": "CUST022",
+    "customerName": "Hesti Wulandari",
+    "email": "user22@example.com",
+    "phone": "087714392826",
+    "loyalty": "Gold"
+  },
+  {
+    "customerId": "CUST023",
+    "customerName": "Imam Syafi\u2019i",
+    "email": "user23@example.com",
+    "phone": "088195748965",
+    "loyalty": "Bronze"
+  },
+  {
+    "customerId": "CUST024",
+    "customerName": "Putri Amelia",
+    "email": "user24@example.com",
+    "phone": "089919246895",
+    "loyalty": "Bronze"
+  },
+  {
+    "customerId": "CUST025",
+    "customerName": "Doni Saputra",
+    "email": "user25@example.com",
+    "phone": "083870227448",
+    "loyalty": "Bronze"
+  },
+  {
+    "customerId": "CUST026",
+    "customerName": "Karina Widya",
+    "email": "user26@example.com",
+    "phone": "089434023688",
+    "loyalty": "Gold"
+  },
+  {
+    "customerId": "CUST027",
+    "customerName": "Anwar Maulana",
+    "email": "user27@example.com",
+    "phone": "085144726457",
+    "loyalty": "Gold"
+  },
+  {
+    "customerId": "CUST028",
+    "customerName": "Vina Oktaviani",
+    "email": "user28@example.com",
+    "phone": "083256657495",
+    "loyalty": "Silver"
+  },
+  {
+    "customerId": "CUST029",
+    "customerName": "Yoga Prabowo",
+    "email": "user29@example.com",
+    "phone": "086486264288",
+    "loyalty": "Bronze"
+  },
+  {
+    "customerId": "CUST030",
+    "customerName": "Citra Melinda",
+    "email": "user30@example.com",
+    "phone": "084846189450",
+    "loyalty": "Silver"
+  }
+]

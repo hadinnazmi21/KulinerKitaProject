@@ -1,0 +1,108 @@
+/* Global Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Container for the article */
+.article-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Title and Introduction */
+.article-title {
+  font-size: 2.5rem;
+  color: #4CAF50;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.article-intro {
+  font-size: 1rem;
+  color: #555;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* JudulArtikel (Article Title) */
+.judul-artikel h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.judul-artikel p strong {
+  font-size: 1rem;
+  color: #777;
+}
+
+/* Image Styles */
+.article-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+/* Isi (Main content) */
+.article-content {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.8;
+  margin-top: 20px;
+  display: block;
+}
+
+/* KataMotivasi (Motivational Quotes Section) */
+.motivational-quotes p {
+  font-size: 1.2rem;
+  color: #444;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.motivational-quotes p:first-of-type {
+  text-transform: lowercase;
+}
+
+.motivational-quotes p:last-of-type {
+  text-transform: uppercase;
+  color: #FF5722;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .article-title {
+      font-size: 2rem;
+  }
+
+  .judul-artikel h2 {
+      font-size: 1.5rem;
+  }
+
+  .article-content {
+      font-size: 0.9rem;
+  }
+
+  .article-container {
+      padding: 15px;
+  }
+
+  .article-image {
+      max-width: 100%;
+  }
+}

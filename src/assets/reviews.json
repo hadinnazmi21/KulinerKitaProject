@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Vicky Finch",
+    "avatar": "https://randomuser.me/api/portraits/women/65.jpg",
+    "review": "Saya datang untuk sarapan, semuanya enak! Anak saya suka telurnya, dan semua menu sangat direkomendasikan.",
+    "link": "#"
+  },
+  {
+    "id": 2,
+    "name": "Rachel York",
+    "avatar": "https://randomuser.me/api/portraits/women/68.jpg",
+    "review": "Tempat kecil yang nyaman dengan staf yang ramah.",
+    "link": "#"
+  },
+  {
+    "id": 3,
+    "name": "Alison Clarke",
+    "avatar": "https://randomuser.me/api/portraits/women/43.jpg",
+    "review": "Selalu disambut dengan baik dan makanannya luar biasa. Good job!",
+    "link": "#"
+  },
+  {
+    "id": 4,
+    "name": "Nicki Middlemiss",
+    "avatar": "https://randomuser.me/api/portraits/men/12.jpg",
+    "review": "Tempat yang hebat! Makanannya enak, staf ramah, dan kue-kuenya luar biasa.",
+    "link": "#"
+  },
+  {
+    "id": 5,
+    "name": "Sabrina Whiting",
+    "avatar": "https://randomuser.me/api/portraits/women/21.jpg",
+    "review": "Tempat yang tenang, staf ramah. Roti bacon-nya enak banget. Pasti akan kembali.",
+    "link": "#"
+  },
+  {
+    "id": 6,
+    "name": "Helen Whitley",
+    "avatar": "https://randomuser.me/api/portraits/women/44.jpg",
+    "review": "Sup kelapa & lime buatan sendiri, ide yang luar biasa! 😋",
+    "link": "#"
+  }
+]
