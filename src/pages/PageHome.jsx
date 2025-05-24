@@ -20,7 +20,7 @@ export default function PageHome() {
     },
     {
       image: "/img/sambalbawang.png",
-      name: "Sambal Bawang Instan",
+      name: "Sambal Bawang",
       price: "35.000",
       description: "Cocok untuk kamu anak kost agar makan lebih nikmat",
     },
