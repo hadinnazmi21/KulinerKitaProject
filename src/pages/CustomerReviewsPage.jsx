@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
+import { Link } from "react-router-dom";
 
 export default function CustomerReviewsPage() {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch("/src/assets/reviews.json")
+    fetch("/data/reviews.json")
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);
@@ -33,15 +34,17 @@ export default function CustomerReviewsPage() {
                   alt={review.name}
                   className="w-10 h-10 rounded-full border-2 border-green-400"
                 />
-                <span className="font-semibold text-green-700">{review.name}</span>
+                <span className="font-semibold text-green-700">
+                  {review.name}
+                </span>
               </div>
               <p className="text-green-800 flex-1">{review.review}</p>
-              <a
-                href={review.link}
+              <Link
+                to={`/reviews/${review.id}`}
                 className="mt-4 text-green-600 hover:underline text-sm font-medium"
               >
-                Lihat semua review
-              </a>
+                Lihat detail
+              </Link>
             </div>
           ))}
         </div>
