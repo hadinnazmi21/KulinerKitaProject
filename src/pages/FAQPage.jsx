@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Header from "../components/Header";
 
 export default function FAQPage() {
   const [faqs, setFaqs] = useState([]);
 
   useEffect(() => {
-    fetch("/src/assets/faq.json")
+    fetch("/data/faq.json") // Sesuaikan path jika perlu
       .then((res) => res.json())
       .then((data) => setFaqs(data));
   }, []);
@@ -64,10 +65,20 @@ export default function FAQPage() {
           {faqs.map((item, index) => (
             <div
               key={index}
-              className="bg-white border border-green-200 rounded-lg p-5 shadow-sm hover:shadow-md transition"
+              className="bg-white border border-green-200 rounded-lg p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between"
             >
-              <h3 className="font-semibold mb-2">{item.question}</h3>
-              <p className="text-sm text-gray-700">{item.answer}</p>
+              <div>
+                <h3 className="font-semibold mb-2">{item.question}</h3>
+                <p className="text-sm text-gray-700 line-clamp-3">{item.answer}</p>
+              </div>
+              <div className="mt-4">
+                <Link
+                  to={`/faq/${index}`}
+                  className="inline-block text-green-600 hover:text-green-800 font-semibold"
+                >
+                  Lihat Detail &rarr;
+                </Link>
+              </div>
             </div>
           ))}
         </div>

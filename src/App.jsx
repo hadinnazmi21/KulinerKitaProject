@@ -20,6 +20,7 @@ const Quotes = React.lazy(() => import("./pages/Quotes"));
 const PageShopDetail = React.lazy(() => import("./pages/PageShopDetail"));
 const QuotesDetail = React.lazy(() => import("./pages/QuotesDetail"));
 const CustomerReviewDetail = React.lazy(() => import("./pages/CustomerReviewDetail"));
+const FAQDetail = React.lazy(() => import("./pages/FAQDetail"));
 
 import Loading from "./components/Loading";
 
@@ -36,6 +37,7 @@ function App() {
           <Route path="/products/:id" element={<PageShopDetail/>} />
           <Route path="/PageAboutUs" element={<PageAboutUs />} />
           <Route path="/FAQPage" element={<FAQPage />} />
+          <Route path="/faq/:id" element={<FAQDetail />} />
           <Route path="/CareerPage" element={<CareerPage/>} />
           <Route path="/ContactUsPage" element={<ContactUsPage/>} />
           <Route path="/CustomerReviewsPage" element={<CustomerReviewsPage/>} />

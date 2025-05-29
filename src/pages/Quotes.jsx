@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Header from "../components/Header";
 import QuoteCard from "../components/QuoteCard";
 
 export default function Quotes() {
@@ -8,6 +9,15 @@ export default function Quotes() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    // Cek apakah sudah ada data di localStorage
+    const storedQuotes = localStorage.getItem("quotes");
+    if (storedQuotes) {
+      setQuotes(JSON.parse(storedQuotes));
+      setLoading(false);
+      return;
+    }
+
+    // Jika belum ada, fetch dari API
     const fetchQuotes = async () => {
       try {
         const allQuotes = [];
@@ -24,9 +34,10 @@ export default function Quotes() {
           }
           await new Promise((r) => setTimeout(r, 300));
         }
-        // Tambahkan id unik karena API tidak menyediakan id
         const quotesWithId = allQuotes.map((q, idx) => ({ ...q, id: idx + 1 }));
         setQuotes(quotesWithId);
+        // Simpan ke localStorage
+        localStorage.setItem("quotes", JSON.stringify(quotesWithId));
       } catch (err) {
         setError(err.message);
       } finally {
@@ -40,10 +51,13 @@ export default function Quotes() {
   if (error) return <p className="text-red-600">{error}</p>;
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-4">
-      {quotes.map((q) => (
-        <QuoteCard key={q.id} id={q.id} quote={q.quote} author={q.author} />
-      ))}
+    <div>
+      <Header />
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-4">
+        {quotes.map((q) => (
+          <QuoteCard key={q.id} id={q.id} quote={q.quote} author={q.author} />
+        ))}
+      </div>
     </div>
   );
 }
