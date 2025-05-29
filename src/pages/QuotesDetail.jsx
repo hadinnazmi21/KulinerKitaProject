@@ -1,33 +1,24 @@
-import { useEffect, useState } from "react"
-import axios from "axios"
+import { useLocation, Link } from "react-router-dom";
 
-export default function QuoteDetail() {
-  const [quote, setQuote] = useState(null)
-  const [error, setError] = useState(null)
+export default function QuotesDetail() {
+  const location = useLocation();
+  const { quote, author } = location.state || {};
 
-  useEffect(() => {
-    axios
-      .get("https://zenquotes.io/api/random")
-      .then((response) => {
-        if (response.status !== 200 || !response.data || !response.data[0]) {
-          setError("Gagal mengambil kutipan.")
-          return
-        }
-        setQuote(response.data[0])
-      })
-      .catch((err) => {
-        setError(err.message)
-      })
-  }, [])
-
-  if (error) return <div className="text-red-600 p-4">{error}</div>
-  if (!quote) return <div className="p-4">Loading...</div>
+  if (!quote) {
+    return (
+      <div className="p-6 text-center text-red-600">
+        Data kutipan tidak tersedia. Kembali ke <Link to="/quotes" className="text-green-600 underline">daftar kutipan</Link>.
+      </div>
+    );
+  }
 
   return (
-    <div className="p-6 bg-white rounded-xl shadow-lg max-w-xl mx-auto mt-6">
-      <h2 className="text-xl font-semibold text-gray-800 mb-4">Kutipan Hari Ini</h2>
-      <p className="text-lg italic text-gray-700 mb-4">&quot;{quote.q}&quot;</p>
-      <p className="text-right text-gray-500 font-medium">- {quote.a}</p>
+    <div className="max-w-xl mx-auto p-6 bg-white rounded-xl shadow-lg mt-6">
+      <p className="italic text-lg mb-4">&quot;{quote}&quot;</p>
+      <p className="font-semibold text-green-700 mb-6">- {author || "Unknown"}</p>
+      <Link to="/quotes" className="text-green-600 hover:text-green-800 font-medium">
+        &larr; Kembali ke daftar kutipan
+      </Link>
     </div>
-  )
+  );
 }

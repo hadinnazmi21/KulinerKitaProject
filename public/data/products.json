@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "image": "/img/kopisusugulaarenjpg.jpg",
+    "name": "Kopi Susu Gula Aren",
+    "price": "15.000",
+    "description": "Pecinta Kopi wajib nyobain ini"
+  },
+  {
+    "id": 2,
+    "image": "/img/baksourat.png",
+    "name": "Bakso Urat Instan",
+    "price": "10.000",
+    "description": "Makan bakso tiap hari tanpa perlu ribet pesan online"
+  },
+  {
+    "id": 3,
+    "image": "/img/sambalbawang.png",
+    "name": "Sambal Bawang Instan",
+    "price": "35.000",
+    "description": "Cocok untuk kamu anak kost agar makan lebih nikmat"
+  },
+  {
+    "id": 4,
+    "image": "/img/kopisusugulaarenjpg.jpg",
+    "name": "Kopi Gula Aren Lite",
+    "price": "13.000",
+    "description": "Varian rendah kalori, cocok buat diet!"
+  },
+  {
+    "id": 5,
+    "image": "/img/baksourat.png",
+    "name": "Bakso Urat Jumbo",
+    "price": "12.000",
+    "description": "Lebih besar, lebih puas!"
+  },
+  {
+    "id": 6,
+    "image": "/img/sambalbawang.png",
+    "name": "Sambal Extra Pedas",
+    "price": "40.000",
+    "description": "Bikin makanmu makin nendang!"
+  }
+]

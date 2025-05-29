@@ -17,7 +17,10 @@ const CareerPage = React.lazy(() => import("./pages/CareerPage"));
 const ContactUsPage = React.lazy(() => import("./pages/ContactUsPage"));
 const CustomerReviewsPage = React.lazy(() => import("./pages/CustomerReviewsPage"));
 const Quotes = React.lazy(() => import("./pages/Quotes"));
+const PageShopDetail = React.lazy(() => import("./pages/PageShopDetail"));
+const QuotesDetail = React.lazy(() => import("./pages/QuotesDetail"));
 import Loading from "./components/Loading";
+
 
 
 function App() {
@@ -28,12 +31,14 @@ function App() {
         <Route element={<MainLayout />}>
           <Route path="/" element={<PageHome />} />
           <Route path="/PageShop" element={<PageShop />} />
+          <Route path="/products/:id" element={<PageShopDetail/>} />
           <Route path="/PageAboutUs" element={<PageAboutUs />} />
           <Route path="/FAQPage" element={<FAQPage />} />
           <Route path="/CareerPage" element={<CareerPage/>} />
           <Route path="/ContactUsPage" element={<ContactUsPage/>} />
           <Route path="/CustomerReviewsPage" element={<CustomerReviewsPage/>} />
           <Route path="/Quotes" element={<Quotes/>} />
+          <Route path="/quotes/:id" element={<QuotesDetail />} />
         </Route>
 
         <Route path="/ErrorPage400" element={<ErrorPage400 />} />
