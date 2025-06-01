@@ -25,7 +25,7 @@ export default function FooterComponent({ brand = "KulinerKita", links = {} }) {
 
         {links.resources && (
           <div>
-            <h5 className="font-semibold mb-2">Panduan</h5>
+            <h5 className="font-semibold mb-2">Panduans</h5>
             {links.resources.map((item, i) => (
               <Link to={item.href} key={i} className="block text-gray-300 hover:text-white mb-1">
                 {item.label}
