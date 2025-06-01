@@ -1,8 +1,10 @@
 import React from "react";
-import Header from "../components/Header";
+
 import HeroSectionComponent from "../components/HeroSectionCompont";
-import Footer from "../components/Footer";
+
 import ProductCard from "../components/ProductCard";
+import TrustedSection from "../components/TrustedSection";
+import TestimoniSection from "../components/TestimoniSection";
 
 export default function PageHome() {
   const products = [
@@ -27,8 +29,7 @@ export default function PageHome() {
   ];
 
   return (
-    <div className="w-full min-h-screen">
-      <Header/>
+    <div className="w-full min-h-screen bg-white">
       <HeroSectionComponent
         image="/img/hero-1.png"
         subtitle="Place to Buy Viral Food"
@@ -37,6 +38,7 @@ export default function PageHome() {
         buttonLabel="Shop Now"
         buttonLink="/PageShop"
       />
+      <TrustedSection />
 
       {/* Product Section */}
       <section className="py-16 bg-white">
@@ -50,7 +52,6 @@ export default function PageHome() {
                 price={product.price}
                 description={product.description}
                 onAdd={() => alert(`Added ${product.name} to cart!`)}
-
                 cardClass="bg-white p-6 rounded-xl shadow-md hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out"
                 imageClass="w-40 h-40 object-cover rounded-full mx-auto"
                 nameClass="mt-4 text-xl font-bold"
@@ -62,7 +63,8 @@ export default function PageHome() {
           </div>
         </div>
       </section>
-      <Footer />
+
+      <TestimoniSection />
     </div>
   );
 }
