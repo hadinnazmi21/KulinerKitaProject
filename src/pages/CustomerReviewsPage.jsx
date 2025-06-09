@@ -13,7 +13,7 @@ export default function CustomerReviewsPage() {
 
   return (
     <div className="bg-green-50 min-h-screen text-green-900">
-      <Header />
+     
       {/* Hero Section */}
       <section className="py-12 text-center">
         <h1 className="text-4xl font-bold text-green-800 mb-2">REVIEWS</h1>

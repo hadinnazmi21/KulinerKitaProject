@@ -23,6 +23,8 @@ const CustomerReviewDetail = React.lazy(() => import("./pages/CustomerReviewDeta
 const FAQDetail = React.lazy(() => import("./pages/FAQDetail"));
 
 import Loading from "./components/Loading";
+import TestimoniPage from "./pages/TestimoniPage";
+import QuotesPelanggan from "./pages/QuotesPelanggan";
 
 
 
@@ -40,10 +42,12 @@ function App() {
           <Route path="/faq/:id" element={<FAQDetail />} />
           <Route path="/CareerPage" element={<CareerPage/>} />
           <Route path="/ContactUsPage" element={<ContactUsPage/>} />
-          <Route path="/CustomerReviewsPage" element={<CustomerReviewsPage/>} />
+          <Route path="/TestimoniPage" element={<TestimoniPage/>} />
           <Route path="/reviews/:id" element={<CustomerReviewDetail />} />
           <Route path="/Quotes" element={<Quotes/>} />
+          <Route path="/QuotesPelanggan" element={<QuotesPelanggan/>} />
           <Route path="/quotes/:id" element={<QuotesDetail />} />
+          
         </Route>
 
         <Route path="/ErrorPage400" element={<ErrorPage400 />} />

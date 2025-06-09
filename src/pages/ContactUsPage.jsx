@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
+import { contactUsAPI } from "../services/contactusAPI";
 
 export default function ContactUsPage() {
   const [formData, setFormData] = useState({
-    name: "",
+    nama: "",
     email: "",
-    message: "",
+    pesan: "",
   });
 
   const [status, setStatus] = useState(null);
@@ -17,20 +18,21 @@ export default function ContactUsPage() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Contoh: validasi sederhana
-    if (!formData.name || !formData.email || !formData.message) {
+    if (!formData.nama || !formData.email || !formData.pesan) {
       setStatus({ success: false, message: "Mohon isi semua kolom." });
       return;
     }
 
-    // Simulasi submit form (bisa diganti dengan API call)
-    setTimeout(() => {
+    try {
+      await contactUsAPI.createContact(formData);
       setStatus({ success: true, message: "Pesan berhasil dikirim. Terima kasih!" });
-      setFormData({ name: "", email: "", message: "" });
-    }, 1000);
+      setFormData({ nama: "", email: "", pesan: "" });
+    } catch (error) {
+      setStatus({ success: false, message: "Gagal mengirim pesan: " + error.message });
+    }
   };
 
   return (
@@ -49,14 +51,14 @@ export default function ContactUsPage() {
       <section className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-lg mt-12 mb-24">
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="name" className="block text-green-800 font-semibold mb-1">
+            <label htmlFor="nama" className="block text-green-800 font-semibold mb-1">
               Nama Lengkap
             </label>
             <input
               type="text"
-              id="name"
-              name="name"
-              value={formData.name}
+              id="nama"
+              name="nama"
+              value={formData.nama}
               onChange={handleChange}
               placeholder="Masukkan nama lengkap Anda"
               className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
@@ -81,13 +83,13 @@ export default function ContactUsPage() {
           </div>
 
           <div>
-            <label htmlFor="message" className="block text-green-800 font-semibold mb-1">
+            <label htmlFor="pesan" className="block text-green-800 font-semibold mb-1">
               Pesan
             </label>
             <textarea
-              id="message"
-              name="message"
-              value={formData.message}
+              id="pesan"
+              name="pesan"
+              value={formData.pesan}
               onChange={handleChange}
               placeholder="Tulis pesan Anda di sini"
               rows={5}

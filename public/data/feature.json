@@ -1,0 +1,32 @@
+[
+  {
+    "icon": "FaStopwatch",
+    "title": "Proses Cepat",
+    "description": "Tidak butuh waktu lama, dalam 60 detik, kamu bisa mulai berjualan dan terlihat."
+  },
+  {
+    "icon": "FaStore",
+    "title": "Fitur Lengkap",
+    "description": "Terdapat fitur toko online makanan lengkap dengan info toko, menu, dan review."
+  },
+  {
+    "icon": "FaMobileAlt",
+    "title": "Transaksi Mudah",
+    "description": "Proses transaksi jual, beli, dan review makanan bisa dilakukan dalam 1 aplikasi."
+  },
+  {
+    "icon": "FaHandshake",
+    "title": "Komunikasi Cepat",
+    "description": "Pembeli dan penjual dapat melakukan komunikasi kontak langsung dengan cepat."
+  },
+  {
+    "icon": "FaMapMarkerAlt",
+    "title": "Sorting Lokasi",
+    "description": "Pembeli dapat melakukan sorting berdasarkan lokasi terdekat dengan mereka."
+  },
+  {
+    "icon": "FaGlobeAsia",
+    "title": "Tersedia di Banyak Kota",
+    "description": "Penjual dan pembeli tersedia di seluruh wilayah dan kota-kota yang ada di Indonesia."
+  }
+]
