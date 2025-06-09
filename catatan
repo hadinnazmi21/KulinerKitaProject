@@ -1,0 +1,10 @@
+git remote add origin https://github.com/hadinnazmi21/KulinerKitaProject.git
+git init 
+git clone -b main https://github.com/hadinnazmi21/KulinerKitaProject.git
+
+
+git add .
+git commit -m "Initial commit"
+git push -u origin main
+
+git pull origin main
