@@ -39,13 +39,7 @@ export default function ContactUsPage() {
     <div className="bg-green-50 min-h-screen text-green-900">
       <Header />
 
-      {/* Hero Section */}
-      <section className="bg-green-700 text-white py-16 px-6 text-center">
-        <h1 className="text-4xl font-bold mb-2">Hubungi Kami</h1>
-        <p className="text-center text-green-200">
-          Kami siap membantu Anda. Silakan isi formulir di bawah untuk mengirim pesan kepada kami.
-        </p>
-      </section>
+     
 
       {/* Contact Form */}
       <section className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-lg mt-12 mb-24">

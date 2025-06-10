@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function HeroSectionComponent({
   image,
@@ -8,22 +9,30 @@ export default function HeroSectionComponent({
   description,
   buttonLabel,
   buttonLink,
-  
 }) {
   return (
-    <section className="w-full bg-[#f9f8f4] py-16 px-8">
+    <section className="w-full bg-[#f9f8f4] py-16 px-8 overflow-hidden">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12">
-        {/* Gambar */}
-        <div className="flex justify-center">
+        {/* Gambar masuk dari kiri ke dalam */}
+        <motion.div
+          className="flex justify-center"
+          initial={{ opacity: 0, x: -150 }} // kiri → tengah
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+        >
           <img
             src={image}
             alt={title}
             className="max-w-full h-auto object-contain"
           />
-        </div>
+        </motion.div>
 
-        {/* Teks */}
-        <div>
+        {/* Teks masuk dari kanan ke dalam */}
+        <motion.div
+          initial={{ opacity: 0, x: 150 }} // kanan → tengah
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+        >
           <p className="text-sm text-green-800 font-medium mb-2">{subtitle}</p>
           <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
             {title}
@@ -37,7 +46,7 @@ export default function HeroSectionComponent({
           >
             {buttonLabel}
           </Link>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

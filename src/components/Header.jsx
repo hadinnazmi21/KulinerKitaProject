@@ -22,10 +22,12 @@ export default function Header() {
           </Link>
           {/* Dropdown Label - Not Clickable */}
           <div className="relative group">
-            <span className="cursor-default hover:text-green-600 transition">
+            <div className="cursor-pointer hover:text-green-600 transition">
               About KulinerKita ▾
-            </span>
-            <div className="absolute left-0 mt-2 w-44 bg-white border border-gray-200 rounded-md shadow-lg opacity-0 group-hover:opacity-100 group-hover:visible invisible transition-opacity duration-300 z-10">
+            </div>
+
+            {/* Dropdown Box */}
+            <div className="absolute left-0 mt-2 w-44 bg-white border border-gray-200 rounded-md shadow-lg opacity-0 group-hover:opacity-100 group-hover:visible invisible transition-all duration-300 z-10 pointer-events-auto">
               <Link
                 to="/PageAboutUs"
                 className="block px-4 py-2 text-sm hover:bg-gray-100 text-gray-800"
