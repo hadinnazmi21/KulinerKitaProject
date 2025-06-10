@@ -1,3 +1,7 @@
+import { FaStackExchange } from "react-icons/fa";
+import { IoIosPricetags } from "react-icons/io";
+import { MdOutlineFastfood } from "react-icons/md";
+import { GrSecure } from "react-icons/gr";
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -9,33 +13,46 @@ export default function PageAboutUs() {
       <Header />
 
       <section className="py-10 px-4 sm:px-6 lg:px-8">
-        <div className="p-8 rounded-xl shadow-md">
+        <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-[#35a828] mb-4">
             Tentang <span className="text-[#1A223E]">Kuliner Kita</span>
           </h2>
           <p className="text-gray-700 mb-10 leading-relaxed">
-            Platform terpercaya untuk jual beli makanan viral dan langka dari Instagram &amp; TikTok, dengan proses mudah, aman, dan transparan.
+            Platform terpercaya untuk jual beli makanan viral dan langka dari
+            Instagram &amp; TikTok, dengan proses mudah, aman, dan transparan.
             <br />
             Temukan kuliner kekinian favoritmu tanpa ribet!
           </p>
 
           <div className="md:flex md:items-center md:gap-8 mb-12">
             <div className="md:w-1/2 mb-8 md:mb-0">
-              <h3 className="text-2xl font-semibold text-[#1A223E] mb-5">Siapa Kami?</h3>
+              <h3 className="text-2xl font-semibold text-[#1A223E] mb-5">
+                Siapa Kami?
+              </h3>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                Kuliner Kita hadir sebagai solusi untuk menemukan dan membeli makanan viral serta langka yang sedang tren di media sosial. Kami mengutamakan kemudahan, kecepatan, dan keamanan dalam setiap transaksi, agar kamu bisa menikmati kuliner favorit tanpa ribet.
+                Kuliner Kita hadir sebagai solusi untuk menemukan dan membeli
+                makanan viral serta langka yang sedang tren di media sosial.
+                Kami mengutamakan kemudahan, kecepatan, dan keamanan dalam
+                setiap transaksi, agar kamu bisa menikmati kuliner favorit tanpa
+                ribet.
               </p>
               <ul className="list-disc pl-5 text-gray-700 space-y-3">
-                <li>Ribuan pilihan makanan viral dan langka dari berbagai kota</li>
-                <li>Kurasi dan pengecekan kualitas makanan secara menyeluruh</li>
-                <li>Partner UMKM, home-cook, dan penjual individu terpercaya</li>
+                <li>
+                  Ribuan pilihan makanan viral dan langka dari berbagai kota
+                </li>
+                <li>
+                  Kurasi dan pengecekan kualitas makanan secara menyeluruh
+                </li>
+                <li>
+                  Partner UMKM, home-cook, dan penjual individu terpercaya
+                </li>
               </ul>
             </div>
             <div className="md:w-1/2 flex justify-center">
               <img
-                src="URL_GAMBAR_KULINER"
+                src="/img/1.jpg"
                 alt="Ilustrasi war kuliner kekinian"
-                className="rounded-lg shadow-md w-full max-w-md object-cover"
+                className="rounded-lg shadow-md w-[400px] h-[300px] object-cover"
               />
             </div>
           </div>
@@ -43,24 +60,24 @@ export default function PageAboutUs() {
           <h3 className="text-2xl font-semibold text-[#1A223E] mb-6">
             Kenapa Pilih <span className="text-[#35a828]">Kuliner Kita?</span>
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-4">
             <CardAboutUs
-              iconClass="fas fa-shield-alt"
+              icon={<GrSecure />}
               title="Transaksi Aman"
               description="Setiap penjual dan produk kami verifikasi demi keamanan dan kenyamananmu."
             />
             <CardAboutUs
-              iconClass="fas fa-check-circle"
+              icon={<MdOutlineFastfood />}
               title="Kualitas Terjamin"
               description="Makanan melalui proses kurasi dan pengecekan kualitas oleh tim profesional."
             />
             <CardAboutUs
-              iconClass="fas fa-tags"
+              icon={<IoIosPricetags />}
               title="Harga Kompetitif"
               description="Harga terbaik langsung dari penjual asli tanpa perantara."
             />
             <CardAboutUs
-              iconClass="fas fa-file-alt"
+              icon={<FaStackExchange />}
               title="Proses Mudah"
               description="Semua proses pemesanan dan pembayaran praktis lewat satu platform."
             />

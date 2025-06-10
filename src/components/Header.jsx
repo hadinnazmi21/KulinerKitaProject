@@ -20,9 +20,32 @@ export default function Header() {
           <Link className="hover:text-green-600 transition" to="/">
             Home
           </Link>
-          <Link className="hover:text-green-600 transition" to="/PageAboutUs">
-            About Us
-          </Link>
+          {/* Dropdown Label - Not Clickable */}
+          <div className="relative group">
+            <span className="cursor-default hover:text-green-600 transition">
+              About KulinerKita ▾
+            </span>
+            <div className="absolute left-0 mt-2 w-44 bg-white border border-gray-200 rounded-md shadow-lg opacity-0 group-hover:opacity-100 group-hover:visible invisible transition-opacity duration-300 z-10">
+              <Link
+                to="/PageAboutUs"
+                className="block px-4 py-2 text-sm hover:bg-gray-100 text-gray-800"
+              >
+                About Us
+              </Link>
+              <Link
+                to="/ContactUsPage"
+                className="block px-4 py-2 text-sm hover:bg-gray-100 text-gray-800"
+              >
+                Contact Us
+              </Link>
+              <Link
+                to="/ArtikelPage"
+                className="block px-4 py-2 text-sm hover:bg-gray-100 text-gray-800"
+              >
+                Artikel
+              </Link>
+            </div>
+          </div>
           <Link className="hover:text-green-600 transition" to="/ErrorPage400">
             Portfolio
           </Link>
@@ -35,7 +58,10 @@ export default function Header() {
           <Link className="hover:text-green-600 transition" to="/FAQPage">
             FAQ
           </Link>
-          <Link className="hover:text-green-600 transition" to="/QuotesPelanggan">
+          <Link
+            className="hover:text-green-600 transition"
+            to="/QuotesPelanggan"
+          >
             Quotes
           </Link>
           <Link

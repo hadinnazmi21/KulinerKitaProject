@@ -11,13 +11,11 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="bg-white text-gray-500 pt-10 px-6">
+    <footer className="bg-white text-gray-500 px-6 pt-10">
       {/* Garis Atas */}
-      <div className="border-t border-gray-300 mb-10 w-full">
-        {/* spasi agar garis terlihat seperti menyatu */}
-      </div>
+      <div className="border-t border-gray-300 mb-10"></div>
 
-      {/* Isi Konten Footer */}
+      {/* Konten Footer */}
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-sm">
         {/* Brand Info */}
         <div>
@@ -28,7 +26,6 @@ export default function Footer() {
             KulinerKita merupakan aplikasi marketplace jual beli makanan yang
             tersedia di seluruh Indonesia.
           </p>
-          
         </div>
 
         {/* Informasi */}
@@ -98,9 +95,9 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Garis Bawah + Copyright */}
-      <div className="mt-10">
-        <div className="max-w-6xl mx-auto border-t border-gray-300 pt-4 text-center text-gray-500 text-sm">
+      {/* Garis Bawah dan Copyright */}
+      <div className="mt-10 border-t border-gray-300">
+        <div className="max-w-6xl mx-auto text-center text-sm text-gray-500 py-4">
           © {new Date().getFullYear()} KulinerKita | All Rights Reserved
         </div>
       </div>
