@@ -1,65 +1,108 @@
+import {
+  AiFillPhone,
+  AiOutlineMail,
+  AiOutlineDownload,
+  AiFillLinkedin,
+  AiOutlineInstagram,
+} from "react-icons/ai";
+import { CgFacebook } from "react-icons/cg";
 import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
-  const brand = "KulinerKita";
-
-  const links = {
-    resources: [
-      { label: "Cara Pemesanan", href: "/panduan/cara-pemesanan" },
-      { label: "Pengiriman", href: "/panduan/pengiriman" },
-      { label: "Pembayaran", href: "/panduan/pembayaran" },
-    ],
-    support: [
-      { label: "Hubungi Kami", href: "/contact" },
-      { label: "FAQ", href: "/faq" },
-      { label: "Kebijakan Privasi", href: "/privacy-policy" },
-    ],
-  };
-
   return (
-    <footer className="bg-[#006633] text-white py-10 px-6">
-      <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 gap-8 text-sm">
+    <footer className="bg-white text-gray-500 pt-10 px-6">
+      {/* Garis Atas */}
+      <div className="border-t border-gray-300 mb-10 w-full">
+        {/* spasi agar garis terlihat seperti menyatu */}
+      </div>
+
+      {/* Isi Konten Footer */}
+      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-sm">
         {/* Brand Info */}
         <div>
-          <h4 className="text-lg font-bold mb-3">{brand}</h4>
-          <p className="text-gray-300">
-            Makanan viral & langka dari TikTok dan Instagram. War makanan tanpa ribet!
+          <h4 className="text-xl font-bold text-green-700 mb-2">
+            Kuliner<span className="text-black">Kita</span>
+          </h4>
+          <p className="text-gray-600 mb-3">
+            KulinerKita merupakan aplikasi marketplace jual beli makanan yang
+            tersedia di seluruh Indonesia.
           </p>
+          
         </div>
 
-        {/* Panduan */}
+        {/* Informasi */}
         <div>
-          <h5 className="font-semibold mb-2">Panduans</h5>
-          {links.resources.map((item, i) => (
-            <Link
-              to={item.href}
-              key={i}
-              className="block text-gray-300 hover:text-white mb-1 transition-colors"
-            >
-              {item.label}
-            </Link>
-          ))}
+          <h5 className="font-semibold mb-2">Information</h5>
+          <ul className="space-y-1 text-gray-600">
+            <li>
+              <Link to="/privacy-policy" className="hover:text-green-700">
+                Kebijakan Privasi
+              </Link>
+            </li>
+            <li>
+              <Link to="/terms" className="hover:text-green-700">
+                Syarat & Ketentuan
+              </Link>
+            </li>
+            <li>
+              <Link to="/faq" className="hover:text-green-700">
+                FAQ
+              </Link>
+            </li>
+          </ul>
         </div>
 
-        {/* Bantuan */}
+        {/* Quick Links */}
         <div>
-          <h5 className="font-semibold mb-2">Bantuan</h5>
-          {links.support.map((item, i) => (
-            <Link
-              to={item.href}
-              key={i}
-              className="block text-gray-300 hover:text-white mb-1 transition-colors"
-            >
-              {item.label}
-            </Link>
-          ))}
+          <h5 className="font-semibold mb-2">Quick Links</h5>
+          <ul className="space-y-1 text-gray-600">
+            <li>
+              <Link to="/download" className="hover:text-green-700 flex items-center gap-2">
+                <AiOutlineDownload /> Download
+              </Link>
+            </li>
+            <li>
+              <a href="mailto:support@kulinerku.com" className="hover:text-green-700 flex items-center gap-2">
+                <AiOutlineMail /> support@kulinerku.com
+              </a>
+            </li>
+            <li>
+              <a href="tel:082123123321" className="hover:text-green-700 flex items-center gap-2">
+                <AiFillPhone /> 0821-2312-3321
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        {/* Sosial Media */}
+        <div>
+          <h5 className="font-semibold mb-2">Follow Kami</h5>
+          <ul className="space-y-1 text-gray-600">
+            <li>
+              <a href="#" className="hover:text-green-700 flex items-center gap-2">
+                <AiOutlineInstagram /> Instagram
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:text-green-700 flex items-center gap-2">
+                <CgFacebook /> Facebook
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:text-green-700 flex items-center gap-2">
+                <AiFillLinkedin /> LinkedIn
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
 
-      {/* Footer Bottom */}
-      <div className="mt-10 border-t border-green-700 pt-6 text-center text-gray-400 text-sm">
-        © {new Date().getFullYear()} {brand}. Semua hak dilindungi.
+      {/* Garis Bawah + Copyright */}
+      <div className="mt-10">
+        <div className="max-w-6xl mx-auto border-t border-gray-300 pt-4 text-center text-gray-500 text-sm">
+          © {new Date().getFullYear()} KulinerKita | All Rights Reserved
+        </div>
       </div>
     </footer>
   );
