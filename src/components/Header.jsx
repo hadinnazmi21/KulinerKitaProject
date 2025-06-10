@@ -3,20 +3,20 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full flex justify-center bg-transparent py-4 shadow-sm">
-      <div className="flex items-center justify-between w-full max-w-5xl bg-white rounded-full shadow-md px-8 py-2">
+    <header className="sticky top-0 z-50 w-full bg-white shadow-md">
+      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-3">
         {/* Logo & Brand */}
-        <div className="flex items-center h-10">
+        <div className="flex items-center space-x-2">
           <img
             src="/img/J.png"
             alt="KulinerKita Logo"
             className="h-8 w-auto object-contain"
           />
-          <span className="ml-2 font-bold text-lg text-green-700">KulinerKita</span>
+          <span className="font-bold text-lg text-green-700">KulinerKita</span>
         </div>
 
         {/* Navigation */}
-        <nav className="flex space-x-8 text-base font-medium text-black">
+        <nav className="hidden md:flex items-center space-x-6 text-sm font-medium text-gray-800">
           <Link className="hover:text-green-600 transition" to="/">
             Home
           </Link>
@@ -38,15 +38,23 @@ export default function Header() {
           <Link className="hover:text-green-600 transition" to="/QuotesPelanggan">
             Quotes
           </Link>
+          <Link
+            to="/ContactUsPage"
+            className="bg-green-600 text-white font-semibold px-5 py-1.5 rounded-full shadow hover:bg-green-700 transition"
+          >
+            Contact Us
+          </Link>
         </nav>
 
-        {/* Contact Button */}
-        <Link
-          to="/ContactUsPage"
-          className="ml-4 bg-green-600 text-white font-semibold px-7 py-2 rounded-full shadow transition-all duration-200 uppercase tracking-wide hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400"
-        >
-          Contact Us
-        </Link>
+        {/* Login/Register */}
+        <div className="ml-4 hidden md:block">
+          <Link
+            to="/Login"
+            className="text-sm text-green-700 font-medium hover:underline"
+          >
+            Masuk / Daftar
+          </Link>
+        </div>
       </div>
     </header>
   );

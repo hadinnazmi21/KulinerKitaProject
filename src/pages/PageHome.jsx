@@ -79,8 +79,8 @@ export default function PageHome() {
   }, []);
 
   const prevSlide = () => {
-    setStartIndex((prev) =>
-      (prev - 1 + testimoniList.length) % testimoniList.length
+    setStartIndex(
+      (prev) => (prev - 1 + testimoniList.length) % testimoniList.length
     );
   };
 
@@ -153,7 +153,7 @@ export default function PageHome() {
         />
 
         {/* Feature Cards Section */}
-        <section className="py-12 bg-gray-50">
+        <section className="py-12 bg-white">
           <div className="container mx-auto px-4">
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">
               Kenapa Harus Jual Beli di{" "}
@@ -177,50 +177,37 @@ export default function PageHome() {
         </section>
 
         {/* Testimoni Carousel Section */}
-        <section className="py-12 bg-white">
+        <section className="py-12 bg-gray-50">
           <div className="container mx-auto px-4">
             <h2 className="text-2xl font-semibold text-center mb-6">
-              Testimoni Pengguna
+              Testimoni Pelanggan
             </h2>
 
+            <h4 className="text-1x1 font text-center mb-6">
+              Apa Kata Mereka
+            </h4>
+
             {loadingTestimoni ? (
-              <div className="text-center text-gray-400">Memuat testimoni...</div>
+              <div className="text-center text-gray-400">
+                Memuat testimoni...
+              </div>
             ) : errorTestimoni ? (
               <div className="text-center text-red-500">{errorTestimoni}</div>
             ) : testimoniList.length === 0 ? (
-              <div className="text-center text-gray-400">Belum ada testimoni.</div>
+              <div className="text-center text-gray-400">
+                Belum ada testimoni.
+              </div>
             ) : (
-              <div className="relative flex items-center justify-center">
-                {/* Prev Button */}
-                <button
-                  onClick={prevSlide}
-                  className="absolute left-0 z-10 bg-green-600 text-white rounded-full p-2 shadow hover:bg-green-700"
-                  aria-label="Previous"
-                >
-                  &#8592;
-                </button>
-
-                {/* Testimoni Cards */}
-                <div className="flex justify-center gap-6 overflow-hidden">
-                  {getVisibleTestimoni().map((item) => (
-                    <div key={item.id} className="flex-shrink-0 w-80">
-                      <TestimoniCard
-                        avatar={item.avatar}
-                        nama={item.nama}
-                        pesan={item.pesan}
-                      />
-                    </div>
-                  ))}
-                </div>
-
-                {/* Next Button */}
-                <button
-                  onClick={nextSlide}
-                  className="absolute right-0 z-10 bg-green-600 text-white rounded-full p-2 shadow hover:bg-green-700"
-                  aria-label="Next"
-                >
-                  &#8594;
-                </button>
+              <div className="flex justify-center flex-wrap gap-6">
+                {testimoniList.slice(0, 3).map((item) => (
+                  <div key={item.id} className="w-full sm:w-80">
+                    <TestimoniCard
+                      avatar={item.avatar}
+                      nama={item.nama}
+                      pesan={item.pesan}
+                    />
+                  </div>
+                ))}
               </div>
             )}
           </div>
@@ -232,8 +219,16 @@ export default function PageHome() {
           <TestimoniForm
             fields={[
               { name: "nama", type: "text", placeholder: "Nama Anda" },
-              { name: "pesan", type: "textarea", placeholder: "Tulis testimoni Anda..." },
-              { name: "avatar", type: "file", placeholder: "Upload foto/avatar (opsional)" },
+              {
+                name: "pesan",
+                type: "textarea",
+                placeholder: "Tulis testimoni Anda...",
+              },
+              {
+                name: "avatar",
+                type: "file",
+                placeholder: "Upload foto/avatar (opsional)",
+              },
             ]}
             onSubmit={handleSubmitTestimoni}
             disabled={uploading}
@@ -246,7 +241,11 @@ export default function PageHome() {
           <QuotesForm
             fields={[
               { name: "nama", type: "text", placeholder: "Nama Anda" },
-              { name: "quotes", type: "textarea", placeholder: "Tulis quote Anda..." },
+              {
+                name: "quotes",
+                type: "textarea",
+                placeholder: "Tulis quote Anda...",
+              },
             ]}
             onSubmit={handleSubmitQuotes}
             disabled={quotesSubmitting}
