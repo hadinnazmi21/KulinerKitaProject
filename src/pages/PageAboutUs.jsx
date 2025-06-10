@@ -1,83 +1,69 @@
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import CardAboutUs from "../components/CardAboutUs";
 
 export default function PageAboutUs() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-white">
       <Header />
 
-      <section className="bg-white py-10 px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h4 className="text-sm text-gray-500 tracking-widest uppercase mb-2">
-            Tentang Kami
-          </h4>
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">Kuliner Kita</h2>
-          <p className="text-lg text-gray-600">
-            Tempat penjualan sekaligus war makanan viral dan langka dari Instagram
-            & TikTok. Kami hadir untuk bantu kamu gak ketinggalan{" "}
-            <span className="font-medium text-[#006633]">war kuliner</span>{" "}
-            kekinian!
+      <section className="py-10 px-4 sm:px-6 lg:px-8">
+        <div className="p-8 rounded-xl shadow-md">
+          <h2 className="text-3xl font-bold text-[#35a828] mb-4">
+            Tentang <span className="text-[#1A223E]">Kuliner Kita</span>
+          </h2>
+          <p className="text-gray-700 mb-10 leading-relaxed">
+            Platform terpercaya untuk jual beli makanan viral dan langka dari Instagram &amp; TikTok, dengan proses mudah, aman, dan transparan.
+            <br />
+            Temukan kuliner kekinian favoritmu tanpa ribet!
           </p>
 
-          <div className="text-center max-w-3xl mx-auto mb-24">
-            <div className="bg-[#f7f7f7] p-8 rounded-xl shadow-md mb-8">
-              <h3 className="text-2xl font-semibold text-[#006633] mb-3">Visi</h3>
-              <p className="text-gray-700 leading-relaxed">
-                Menjadi platform kuliner terpercaya di Indonesia untuk produk
-                viral & rare item, sekaligus membangun komunitas pecinta makanan
-                yang aktif dan solid.
+          <div className="md:flex md:items-center md:gap-8 mb-12">
+            <div className="md:w-1/2 mb-8 md:mb-0">
+              <h3 className="text-2xl font-semibold text-[#1A223E] mb-5">Siapa Kami?</h3>
+              <p className="text-gray-700 mb-6 leading-relaxed">
+                Kuliner Kita hadir sebagai solusi untuk menemukan dan membeli makanan viral serta langka yang sedang tren di media sosial. Kami mengutamakan kemudahan, kecepatan, dan keamanan dalam setiap transaksi, agar kamu bisa menikmati kuliner favorit tanpa ribet.
               </p>
+              <ul className="list-disc pl-5 text-gray-700 space-y-3">
+                <li>Ribuan pilihan makanan viral dan langka dari berbagai kota</li>
+                <li>Kurasi dan pengecekan kualitas makanan secara menyeluruh</li>
+                <li>Partner UMKM, home-cook, dan penjual individu terpercaya</li>
+              </ul>
             </div>
-
-            <div className="bg-[#f7f7f7] p-8 rounded-xl shadow-md">
-              <h3 className="text-2xl font-semibold text-[#006633] mb-3">Misi</h3>
-              <p className="text-gray-700 leading-relaxed">
-                Membuat makanan viral dan langka jadi mudah diakses, aman, dan
-                menyenangkan lewat sistem pre-order, war, dan kurasi ketat dari
-                tim kami.
-              </p>
+            <div className="md:w-1/2 flex justify-center">
+              <img
+                src="URL_GAMBAR_KULINER"
+                alt="Ilustrasi war kuliner kekinian"
+                className="rounded-lg shadow-md w-full max-w-md object-cover"
+              />
             </div>
           </div>
 
-          <div className="text-center max-w-3xl mx-auto mb-16 mt-24">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Tim di Balik Kuliner Kita
-            </h2>
-            <p className="text-gray-700 leading-relaxed">
-              Kami adalah duo kreatif dengan semangat tinggi dalam membawa tren
-              kuliner ke tangan kamu, langsung dari layar TikTok & Instagram.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-10">
-            <div className="bg-gray-50 rounded-2xl p-8 shadow-md hover:shadow-lg transition text-center">
-              <img
-                src="/img/kela.jpg"
-                alt="Foto Pendiri"
-                className="w-32 h-32 object-cover rounded-full mx-auto mb-4"
-              />
-              <h3 className="text-xl font-semibold text-gray-800 mb-1">Kela</h3>
-              <p className="text-sm text-gray-500 mb-3">Founder & Kurator Produk</p>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Bertanggung jawab atas seleksi makanan viral, tren sosial media,
-                dan kualitas produk terbaik untuk pengguna.
-              </p>
-            </div>
-
-            <div className="bg-gray-50 rounded-2xl p-8 shadow-md hover:shadow-lg transition text-center">
-              <img
-                src="/img/hadin1.jpg"
-                alt="Foto Rekan"
-                className="w-32 h-32 object-cover rounded-full mx-auto mb-4"
-              />
-              <h3 className="text-xl font-semibold text-gray-800 mb-1">Hadin</h3>
-              <p className="text-sm text-gray-500 mb-3">Founder & Digital Strategist</p>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Mengelola strategi promosi, sistem pre-order, dan komunikasi
-                komunitas Kuliner Kita secara kreatif dan efisien.
-              </p>
-            </div>
+          <h3 className="text-2xl font-semibold text-[#1A223E] mb-6">
+            Kenapa Pilih <span className="text-[#35a828]">Kuliner Kita?</span>
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <CardAboutUs
+              iconClass="fas fa-shield-alt"
+              title="Transaksi Aman"
+              description="Setiap penjual dan produk kami verifikasi demi keamanan dan kenyamananmu."
+            />
+            <CardAboutUs
+              iconClass="fas fa-check-circle"
+              title="Kualitas Terjamin"
+              description="Makanan melalui proses kurasi dan pengecekan kualitas oleh tim profesional."
+            />
+            <CardAboutUs
+              iconClass="fas fa-tags"
+              title="Harga Kompetitif"
+              description="Harga terbaik langsung dari penjual asli tanpa perantara."
+            />
+            <CardAboutUs
+              iconClass="fas fa-file-alt"
+              title="Proses Mudah"
+              description="Semua proses pemesanan dan pembayaran praktis lewat satu platform."
+            />
           </div>
         </div>
       </section>
