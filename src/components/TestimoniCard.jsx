@@ -1,29 +1,15 @@
-export default function TestimoniCard({ avatar, nama, pesan }) {
-  return (
-    <div className="bg-white rounded-xl shadow-md p-6 flex flex-col justify-between text-left h-full">
-      {/* Pesan */}
-      <p className="text-gray-800 mb-6 leading-relaxed text-sm">
-        {pesan}
-      </p>
+import React from "react";
 
-      {/* Profil */}
-      <div className="flex items-center space-x-4 mt-auto">
-        {avatar ? (
-          <img
-            src={avatar}
-            alt={nama || "Avatar"}
-            className="w-10 h-10 rounded-full object-cover"
-          />
-        ) : (
-          <div className="w-10 h-10 rounded-full bg-green-200 flex items-center justify-center text-green-800 font-bold text-lg">
-            {nama ? nama[0].toUpperCase() : "?"}
-          </div>
-        )}
-        <div>
-          <h4 className="font-semibold text-gray-900 text-sm">{nama || "Anonim"}</h4>
-          <p className="text-gray-500 text-xs">Pengguna Setia KulinerKu</p>
-        </div>
-      </div>
+export default function TestimoniCard({ nama, foto, deskripsi }) {
+  return (
+    <div className="bg-white shadow-md rounded-xl p-6 flex flex-col items-center text-center">
+      <img
+        src={foto}
+        alt={nama}
+        className="w-24 h-24 object-cover rounded-full mb-4 border"
+      />
+      <h4 className="text-lg font-semibold mb-2">{nama}</h4>
+      <p className="text-gray-700 italic text-sm">"{deskripsi}"</p>
     </div>
   );
 }
