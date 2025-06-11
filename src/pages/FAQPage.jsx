@@ -1,80 +1,66 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
+import { faqAPI } from "../services/faqAPI";
 
 export default function FAQPage() {
   const [faqs, setFaqs] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
-    fetch("/data/faq.json") // Sesuaikan path jika perlu
-      .then((res) => res.json())
-      .then((data) => setFaqs(data));
+    const fetchData = async () => {
+      try {
+        const data = await faqAPI.fetchNotes();
+        setFaqs(data);
+      } catch (err) {
+        console.error("Gagal mengambil data FAQ:", err);
+      }
+    };
+    fetchData();
   }, []);
+
+  const filteredFaqs = faqs.filter((faq) =>
+    faq.pertanyaan.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <div className="bg-green-50 min-h-screen text-green-800">
       <Header />
-      {/* Hero Search Section */}
-      <div className="bg-green-700 text-white py-16 px-6 text-center relative overflow-hidden">
+      <div className="bg-green-700 text-white py-16 px-6 text-center">
         <div className="max-w-xl mx-auto space-y-6">
           <h1 className="text-3xl md:text-4xl font-bold">
             Bagaimana Kami Bisa Membantu?
           </h1>
-
-          <form className="flex flex-col gap-4 mt-6">
-            <input
-              type="text"
-              placeholder="Ketik pertanyaan Anda"
-              aria-label="Cari pertanyaan"
-              className="w-full p-3 bg-white text-black rounded-full outline-none shadow-md placeholder-gray-500"
-            />
-
-            <p className="text-sm">
-              Mengalami kendala dengan pesanan? Hubungi kami melalui formulir
-              bantuan.
-            </p>
-
-            <button
-              type="submit"
-              className="bg-white text-green-700 font-semibold px-5 py-2 rounded-full shadow hover:bg-green-100 transition"
-            >
-              Dapatkan Bantuan
-            </button>
-          </form>
+          <input
+            type="text"
+            placeholder="Ketik pertanyaan Anda"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="w-full p-3 bg-white text-black rounded-full outline-none shadow-md placeholder-gray-500"
+          />
         </div>
       </div>
 
-      {/* Tabs (Static) */}
-      <div className="bg-white shadow border-b border-green-200">
-        <div className="flex justify-center space-x-8 py-4 font-medium text-green-700">
-          <button className="border-b-2 border-green-600 pb-1">
-            Belanja di KulinerKita
-          </button>
-          <button className="hover:text-green-900">
-            Menjual di KulinerKita
-          </button>
-        </div>
-      </div>
-
-      {/* Featured Articles */}
       <div className="max-w-5xl mx-auto px-4 py-12">
         <h2 className="text-2xl font-bold text-center mb-8">
           Artikel yang Sering Dicari
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {faqs.map((item, index) => (
+          {filteredFaqs.map((item) => (
             <div
-              key={index}
-              className="bg-white border border-green-200 rounded-lg p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between"
+              key={item.id}
+              className="bg-white border border-green-200 rounded-lg p-5 shadow-sm hover:shadow-md transition"
             >
               <div>
-                <h3 className="font-semibold mb-2">{item.question}</h3>
-                <p className="text-sm text-gray-700 line-clamp-3">{item.answer}</p>
+                <h3 className="font-semibold mb-2">{item.pertanyaan}</h3>
+                <p className="text-sm text-gray-700 line-clamp-3">
+                  {item.jawaban}
+                </p>
               </div>
               <div className="mt-4">
                 <Link
-                  to={`/faq/${index}`}
-                  className="inline-block text-green-600 hover:text-green-800 font-semibold"
+                  to={`/faq/${item.id}`}
+                  className="text-green-600 hover:text-green-800 font-semibold"
                 >
                   Lihat Detail &rarr;
                 </Link>

@@ -1,29 +1,31 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import Header from "../components/Header";
+import { faqAPI } from "../services/faqAPI";
 
 export default function FAQDetail() {
   const { id } = useParams();
   const [faq, setFaq] = useState(null);
-  const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("/data/faq.json")  // Sesuaikan path jika perlu
-      .then((res) => {
-        if (!res.ok) throw new Error("Gagal mengambil data FAQ.");
-        return res.json();
-      })
-      .then((data) => {
-        const foundFaq = data[parseInt(id, 10)];
-        if (!foundFaq) {
+    const fetchDetail = async () => {
+      try {
+        const data = await faqAPI.fetchNotes();
+        const selected = data.find((item) => item.id === parseInt(id));
+        if (!selected) {
           setError("FAQ tidak ditemukan.");
         } else {
-          setFaq(foundFaq);
+          setFaq(selected);
         }
-      })
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
+      } catch (err) {
+        setError("Gagal mengambil data FAQ.");
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchDetail();
   }, [id]);
 
   if (loading) return <p className="p-6 text-center">Memuat detail FAQ...</p>;
@@ -41,8 +43,8 @@ export default function FAQDetail() {
       </section>
 
       <section className="max-w-3xl mx-auto bg-white rounded-lg shadow p-8">
-        <h2 className="text-2xl font-semibold mb-4">{faq.question}</h2>
-        <p className="text-gray-700">{faq.answer}</p>
+        <h2 className="text-2xl font-semibold mb-4">{faq.pertanyaan}</h2>
+        <p className="text-gray-700">{faq.jawaban}</p>
 
         <div className="mt-8">
           <Link
