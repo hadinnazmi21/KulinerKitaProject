@@ -36,22 +36,11 @@ export default function TestimoniPage() {
       setUploading(true);
       setError("");
 
-      let fotoUrl = "";
-
-      if (formData.foto) {
-        // Simulasi upload: gunakan base64 langsung
-        fotoUrl = await new Promise((resolve, reject) => {
-          const reader = new FileReader();
-          reader.onloadend = () => resolve(reader.result);
-          reader.onerror = reject;
-          reader.readAsDataURL(formData.foto);
-        });
-      }
-
+      // Tidak lagi menggunakan FileReader karena foto adalah URL string
       await notesAPI.createNote({
         nama: formData.nama,
         deskripsi: formData.deskripsi,
-        foto: fotoUrl,
+        foto: formData.foto || "",
       });
 
       fetchData();
@@ -72,32 +61,48 @@ export default function TestimoniPage() {
       <Header />
 
       <main className="flex-grow p-6 max-w-6xl mx-auto">
-        {error && <div className="bg-red-500 text-white p-4 rounded mb-4">{error}</div>}
+        {error && (
+          <div className="bg-red-500 text-white p-4 rounded mb-4">{error}</div>
+        )}
         {loading && <LoadingSpinner text="Memuat testimoni..." />}
-        {!loading && data.length === 0 && <EmptyState text="Belum ada testimoni." />}
+        {!loading && data.length === 0 && (
+          <EmptyState text="Belum ada testimoni." />
+        )}
 
         <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {paginated.map((item) => (
-            <TestimoniCard key={item.id} nama={item.nama} foto={item.foto} deskripsi={item.deskripsi} />
+            <TestimoniCard
+              key={item.id}
+              nama={item.nama}
+              foto={item.foto}
+              deskripsi={item.deskripsi}
+            />
           ))}
         </section>
 
-        {/* Pagination */}
-        <nav className="flex justify-center mt-8 space-x-2">
-          {Array.from({ length: totalPages }, (_, i) => i + 1).map((num) => (
-            <button
-              key={num}
-              onClick={() => setPage(num)}
-              className={`px-4 py-2 rounded border ${
-                num === page
-                  ? "bg-green-600 text-white"
-                  : "bg-white text-green-700 border-green-500 hover:bg-green-100"
-              }`}
-            >
-              {num}
-            </button>
-          ))}
-        </nav>
+        {/* Pagination with custom green styling */}
+        {totalPages > 1 && (
+          <div className="flex justify-center mt-10">
+            <div className="flex space-x-2">
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                (num) => (
+                  <button
+                    key={num}
+                    onClick={() => setPage(num)}
+                    className={`px-4 py-2 rounded-md font-semibold border 
+            ${
+              page === num
+                ? "bg-green-500 text-white border-green-600"
+                : "bg-white text-green-700 border-green-300 hover:bg-green-100"
+            }`}
+                  >
+                    {num}
+                  </button>
+                )
+              )}
+            </div>
+          </div>
+        )}
 
         <section className="max-w-xl mx-auto my-12">
           <h2 className="text-2xl font-semibold mb-4">Kirim Testimoni</h2>

@@ -14,9 +14,9 @@ export default function PageShop() {
 
   const heroImages = [
     "/img/hero/hero-1.png",
+    "/img/hero/hero-2.png",
     "/img/hero/hero-1.png",
-    "/img/hero/hero-1.png",
-    "/img/hero/hero-1.png",
+    "/img/hero/hero-2.png",
   ];
 
   const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
