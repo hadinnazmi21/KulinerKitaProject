@@ -3,11 +3,17 @@ import { notesAPI } from "../services/testimoniAPI";
 import LoadingSpinner from "../components/LoadingSpinner";
 import EmptyState from "../components/EmptyState";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
+import TestimoniCard from "../components/TestimoniCard";
+import TestimoniForm from "../components/TestimoniForm";
 
 export default function TestimoniPage() {
   const [testimonis, setTestimonis] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [uploading, setUploading] = useState(false); // State untuk loading form
   const [error, setError] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const testimonisPerPage = 9;
 
   const loadTestimonis = async () => {
     try {
@@ -27,13 +33,38 @@ export default function TestimoniPage() {
     loadTestimonis();
   }, []);
 
+  const indexOfLast = currentPage * testimonisPerPage;
+  const indexOfFirst = indexOfLast - testimonisPerPage;
+  const currentTestimonis = testimonis.slice(indexOfFirst, indexOfLast);
+
+  const totalPages = Math.ceil(testimonis.length / testimonisPerPage);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  // Fungsi handle submit form testimoni
+  const handleSubmitTestimoni = async (formData) => {
+    try {
+      setUploading(true);
+      setError("");
+      // Kirim data testimoni ke API (sesuaikan dengan API Anda)
+      await notesAPI.submitNote(formData);
+      await loadTestimonis(); // Refresh daftar testimoni setelah submit
+      setCurrentPage(1); // Kembali ke halaman pertama setelah submit
+    } catch (err) {
+      setError("Gagal mengirim testimoni");
+      console.error(err);
+    } finally {
+      setUploading(false);
+    }
+  };
+
   return (
-    <div className="bg-white min-h-screen text-green-900">
+    <div className="flex flex-col min-h-screen bg-white text-green-900">
       <Header />
 
-      <main className="p-6">
+      <main className="flex-grow p-6 max-w-6xl mx-auto">
         {error && (
-          <div className="bg-red-500 text-white p-4 mb-4 rounded-xl shadow-md max-w-4xl mx-auto">
+          <div className="bg-red-500 text-white p-4 mb-4 rounded-xl shadow-md">
             <p>{error}</p>
           </div>
         )}
@@ -45,38 +76,60 @@ export default function TestimoniPage() {
         )}
 
         {/* Testimoni Grid */}
-        {!loading && testimonis.length > 0 && (
-          <section className="max-w-6xl mx-auto px-4 pb-20">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-              {testimonis.map((testimoni) => (
-                <div
-                  key={testimoni.id}
-                  className="bg-white border border-green-200 rounded-lg shadow hover:shadow-lg transition p-6 flex flex-col"
-                >
-                  {/* Avatar dan Nama */}
-                  {testimoni.avatar ? (
-                    <div className="flex items-center gap-3 mb-4">
-                      <img
-                        src={testimoni.avatar}
-                        alt={testimoni.nama || "Avatar"}
-                        className="w-10 h-10 rounded-full border-2 border-green-400"
-                      />
-                      <span className="font-semibold text-green-700">
-                        {testimoni.nama || "Anonim"}
-                      </span>
-                    </div>
-                  ) : (
-                    <div className="mb-4 font-semibold text-green-700">{testimoni.nama}</div>
-                  )}
-
-                  {/* Isi testimoni */}
-                  <p className="text-green-800 flex-1 whitespace-pre-line">{testimoni.pesan}</p>
-                </div>
-              ))}
-            </div>
+        {!loading && currentTestimonis.length > 0 && (
+          <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 pb-24">
+            {currentTestimonis.map(({ id, avatar, nama, pesan }) => (
+              <TestimoniCard key={id} avatar={avatar} nama={nama} pesan={pesan} />
+            ))}
           </section>
         )}
+
+        {/* Pagination fixed di bawah konten */}
+        <nav
+          className="sticky bottom-0 bg-white border-t border-green-300 shadow-inner py-3 max-w-6xl mx-auto flex justify-center space-x-2 px-4"
+          aria-label="Pagination Navigation"
+        >
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map((num) => (
+            <button
+              key={num}
+              onClick={() => paginate(num)}
+              className={`px-4 py-2 rounded-md border border-green-600 transition ${
+                num === currentPage
+                  ? "bg-green-600 text-white"
+                  : "bg-white text-green-700 hover:bg-green-100"
+              }`}
+              aria-current={num === currentPage ? "page" : undefined}
+              aria-label={`Page ${num}`}
+            >
+              {num}
+            </button>
+          ))}
+        </nav>
+
+        {/* Form Testimoni */}
+        <section className="max-w-xl mx-auto my-12">
+          <h2 className="text-2xl font-semibold mb-4">Kirim Testimoni</h2>
+          <TestimoniForm
+            fields={[
+              { name: "nama", type: "text", placeholder: "Nama Anda" },
+              {
+                name: "pesan",
+                type: "textarea",
+                placeholder: "Tulis testimoni Anda...",
+              },
+              {
+                name: "avatar",
+                type: "file",
+                placeholder: "Upload foto/avatar (opsional)",
+              },
+            ]}
+            onSubmit={handleSubmitTestimoni}
+            disabled={uploading}
+          />
+        </section>
       </main>
+
+      <Footer />
     </div>
   );
 }

@@ -25,6 +25,7 @@ const FAQDetail = React.lazy(() => import("./pages/FAQDetail"));
 import Loading from "./components/Loading";
 import TestimoniPage from "./pages/TestimoniPage";
 import QuotesPelanggan from "./pages/QuotesPelanggan";
+import OurTeamPage from "./pages/OurTeamPage";
 
 
 
@@ -38,6 +39,7 @@ function App() {
           <Route path="/PageShop" element={<PageShop />} />
           <Route path="/products/:id" element={<PageShopDetail/>} />
           <Route path="/PageAboutUs" element={<PageAboutUs />} />
+          <Route path="/OurTeamPage" element={<OurTeamPage/>} />
           <Route path="/FAQPage" element={<FAQPage />} />
           <Route path="/faq/:id" element={<FAQDetail />} />
           <Route path="/CareerPage" element={<CareerPage/>} />

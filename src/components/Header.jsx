@@ -46,6 +46,12 @@ export default function Header() {
               >
                 Artikel
               </Link>
+              <Link
+                to="/OurTeamPage"
+                className="block px-4 py-2 text-sm hover:bg-gray-100 text-gray-800"
+              >
+                Our Team
+              </Link>
             </div>
           </div>
           <Link className="hover:text-green-600 transition" to="/ErrorPage400">
