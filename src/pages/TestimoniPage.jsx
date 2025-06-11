@@ -36,8 +36,17 @@ export default function TestimoniPage() {
       setUploading(true);
       setError("");
 
-      // Ambil langsung URL dari input
-      const fotoUrl = formData.foto || "";
+      let fotoUrl = "";
+
+      if (formData.foto) {
+        // Simulasi upload: gunakan base64 langsung
+        fotoUrl = await new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onloadend = () => resolve(reader.result);
+          reader.onerror = reject;
+          reader.readAsDataURL(formData.foto);
+        });
+      }
 
       await notesAPI.createNote({
         nama: formData.nama,
