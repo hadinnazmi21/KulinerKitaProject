@@ -16,81 +16,99 @@ export default function Header() {
         </div>
 
         {/* Navigation */}
-        <nav className="hidden md:flex items-center space-x-6 text-sm font-medium text-gray-800">
+        <nav className="hidden md:flex items-center space-x-4 text-sm font-medium text-gray-800">
           <Link className="hover:text-green-600 transition" to="/">
             Home
           </Link>
-          {/* Dropdown Label - Not Clickable */}
-          <div className="relative group">
-            <div className="cursor-pointer hover:text-green-600 transition">
+
+          {/* Dropdown About */}
+          <div className="dropdown dropdown-hover">
+            <div
+              tabIndex={0}
+              role="button"
+              className="hover:text-green-600 transition"
+            >
               About KulinerKita ▾
             </div>
-
-            {/* Dropdown Box */}
-            <div className="absolute left-0 mt-2 w-44 bg-white border border-gray-200 rounded-md shadow-lg opacity-0 group-hover:opacity-100 group-hover:visible invisible transition-all duration-300 z-10 pointer-events-auto">
-              <Link
-                to="/PageAboutUs"
-                className="block px-4 py-2 text-sm hover:bg-gray-100 text-gray-800"
-              >
-                About Us
-              </Link>
-              <Link
-                to="/ContactUsPage"
-                className="block px-4 py-2 text-sm hover:bg-gray-100 text-gray-800"
-              >
-                Contact Us
-              </Link>
-              <Link
-                to="/ArtikelList"
-                className="block px-4 py-2 text-sm hover:bg-gray-100 text-gray-800"
-              >
-                Artikel
-              </Link>
-              <Link
-                to="/OurTeamPage"
-                className="block px-4 py-2 text-sm hover:bg-gray-100 text-gray-800"
-              >
-                Our Team
-              </Link>
-            </div>
+            <ul
+              tabIndex={0}
+              className="dropdown-content menu bg-white rounded-box w-52 p-2 shadow-md z-10"
+            >
+              <li>
+                <Link
+                  to="/PageAboutUs"
+                  className="hover:bg-gray-100 rounded"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/ContactUsPage"
+                  className="hover:bg-gray-100 rounded"
+                >
+                  Contact Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/ArtikelList"
+                  className="hover:bg-gray-100 rounded"
+                >
+                  Artikel
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/OurTeamPage"
+                  className="hover:bg-gray-100 rounded"
+                >
+                  Our Team
+                </Link>
+              </li>
+            </ul>
           </div>
+
           <Link className="hover:text-green-600 transition" to="/TestimoniPage">
             Testimoni
           </Link>
-          {/* Dropdown Label - Not Clickable */}
-          <div className="relative group">
-            <div className="cursor-pointer hover:text-green-600 transition">
+
+          {/* Dropdown Lainnya */}
+          <div className="dropdown dropdown-hover">
+            <div
+              tabIndex={0}
+              role="button"
+              className="hover:text-green-600 transition"
+            >
               Lainnya ▾
             </div>
-
-            {/* Dropdown Box */}
-            <div className="absolute left-0 mt-2 w-44 bg-white border border-gray-200 rounded-md shadow-lg opacity-0 group-hover:opacity-100 group-hover:visible invisible transition-all duration-300 z-10 pointer-events-auto">
-              <Link
-                to="/PageAboutUs"
-                className="block px-4 py-2 text-sm hover:bg-gray-100 text-gray-800"
-              >
-                Career
-              </Link>
-              <Link
-                to="/SimulasiWar"
-                className="block px-4 py-2 text-sm hover:bg-gray-100 text-gray-800"
-              >
-                Simulasi War
-              </Link>
-              
-              
-            </div>
+            <ul
+              tabIndex={0}
+              className="dropdown-content menu bg-white rounded-box w-52 p-2 shadow-md z-10"
+            >
+              <li>
+                <Link
+                  to="/PageAboutUs"
+                  className="hover:bg-gray-100 rounded"
+                >
+                  Career
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/SimulasiWar"
+                  className="hover:bg-gray-100 rounded"
+                >
+                  Simulasi War
+                </Link>
+              </li>
+            </ul>
           </div>
-          
+
           <Link className="hover:text-green-600 transition" to="/FAQPage">
             FAQ
           </Link>
-          {/* <Link
-            className="hover:text-green-600 transition"
-            to="/QuotesPelanggan"
-          >
-            Quotes
-          </Link> */}
+
           <Link
             to="/ContactUsPage"
             className="bg-green-600 text-white font-semibold px-5 py-1.5 rounded-full shadow hover:bg-green-700 transition"
