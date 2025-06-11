@@ -26,6 +26,7 @@ import Loading from "./components/Loading";
 import TestimoniPage from "./pages/TestimoniPage";
 import QuotesPelanggan from "./pages/QuotesPelanggan";
 import OurTeamPage from "./pages/OurTeamPage";
+import SimulasiWar from "./pages/SimulasiWar";
 
 
 
@@ -49,6 +50,7 @@ function App() {
           <Route path="/Quotes" element={<Quotes/>} />
           <Route path="/QuotesPelanggan" element={<QuotesPelanggan/>} />
           <Route path="/quotes/:id" element={<QuotesDetail />} />
+          <Route path="/SimulasiWar" element={<SimulasiWar/>} />
           
         </Route>
 

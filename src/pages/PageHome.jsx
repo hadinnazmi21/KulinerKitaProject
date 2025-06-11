@@ -175,7 +175,29 @@ export default function PageHome() {
             </div>
           </div>
         </section>
-
+        {/* Product Section */}
+        <section className="py-16 bg-white">
+          <div className="max-w-5xl mx-auto px-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+              {products.map((product, idx) => (
+                <ProductCard
+                  key={idx}
+                  image={product.image}
+                  name={product.name}
+                  price={product.price}
+                  description={product.description}
+                  onAdd={() => alert(`Added ${product.name} to cart!`)}
+                  cardClass="bg-white p-6 rounded-xl shadow-md hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out"
+                  imageClass="w-40 h-40 object-cover rounded-full mx-auto"
+                  nameClass="mt-4 text-xl font-bold"
+                  priceClass="mt-1 text-sm"
+                  descClass="mt-2 text-sm"
+                  buttonClass="mt-4"
+                />
+              ))}
+            </div>
+          </div>
+        </section>
         {/* Testimoni Carousel Section */}
         <section className="py-12 bg-gray-50">
           <div className="container mx-auto px-4">
@@ -183,9 +205,7 @@ export default function PageHome() {
               Testimoni Pelanggan
             </h2>
 
-            <h4 className="text-1x1 font text-center mb-6">
-              Apa Kata Mereka
-            </h4>
+            <h4 className="text-1x1 font text-center mb-6">Apa Kata Mereka</h4>
 
             {loadingTestimoni ? (
               <div className="text-center text-gray-400">
@@ -213,7 +233,7 @@ export default function PageHome() {
           </div>
         </section>
 
-        {/* Form Testimoni */}
+        {/* Form Testimoni
         <section className="max-w-xl mx-auto my-12">
           <h2 className="text-2xl font-semibold mb-4">Kirim Testimoni</h2>
           <TestimoniForm
@@ -233,9 +253,9 @@ export default function PageHome() {
             onSubmit={handleSubmitTestimoni}
             disabled={uploading}
           />
-        </section>
+        </section> */}
 
-        {/* Form Quotes */}
+        {/* Form Quotes
         <section className="max-w-xl mx-auto my-12">
           <h2 className="text-2xl font-semibold mb-4">Kirim Quote</h2>
           <QuotesForm
@@ -250,31 +270,7 @@ export default function PageHome() {
             onSubmit={handleSubmitQuotes}
             disabled={quotesSubmitting}
           />
-        </section>
-
-        {/* Product Section */}
-        <section className="py-16 bg-white">
-          <div className="max-w-5xl mx-auto px-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-              {products.map((product, idx) => (
-                <ProductCard
-                  key={idx}
-                  image={product.image}
-                  name={product.name}
-                  price={product.price}
-                  description={product.description}
-                  onAdd={() => alert(`Added ${product.name} to cart!`)}
-                  cardClass="bg-white p-6 rounded-xl shadow-md hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out"
-                  imageClass="w-40 h-40 object-cover rounded-full mx-auto"
-                  nameClass="mt-4 text-xl font-bold"
-                  priceClass="mt-1 text-sm"
-                  descClass="mt-2 text-sm"
-                  buttonClass="mt-4"
-                />
-              ))}
-            </div>
-          </div>
-        </section>
+        </section> */}
       </main>
 
       <Footer />
