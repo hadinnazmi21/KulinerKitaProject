@@ -1,7 +1,10 @@
+// File: src/pages/PageShop.jsx
+
 import React, { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
+import { produkAPI } from "../services/produkAPI";
 
 export default function PageShop() {
   const [products, setProducts] = useState([]);
@@ -9,7 +12,6 @@ export default function PageShop() {
   const [search, setSearch] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
 
-  // Array gambar hero
   const heroImages = [
     "/img/hero/hero-1.png",
     "/img/hero/hero-1.png",
@@ -19,7 +21,6 @@ export default function PageShop() {
 
   const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
 
-  // Ganti gambar otomatis setiap 5 detik
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentHeroIndex((prev) =>
@@ -29,12 +30,12 @@ export default function PageShop() {
     return () => clearInterval(interval);
   }, [heroImages.length]);
 
-  // Fungsi pindah gambar manual
   const prevImage = () => {
     setCurrentHeroIndex((prev) =>
       prev === 0 ? heroImages.length - 1 : prev - 1
     );
   };
+
   const nextImage = () => {
     setCurrentHeroIndex((prev) =>
       prev === heroImages.length - 1 ? 0 : prev + 1
@@ -42,16 +43,16 @@ export default function PageShop() {
   };
 
   useEffect(() => {
-    fetch("/data/products.json")
-      .then((res) => {
-        if (!res.ok) throw new Error("Gagal mengambil data produk.");
-        return res.json();
-      })
+    produkAPI
+      .fetchNotes()
       .then((data) => {
         setProducts(data);
         setFilteredProducts(data);
       })
-      .catch((err) => setError(err.message));
+      .catch((err) => {
+        setError("Gagal mengambil data produk.");
+        console.error(err);
+      });
   }, []);
 
   useEffect(() => {
@@ -61,7 +62,7 @@ export default function PageShop() {
     } else {
       setFilteredProducts(
         products.filter((product) =>
-          product.name.toLowerCase().includes(keyword)
+          product.nama.toLowerCase().includes(keyword)
         )
       );
     }
@@ -69,28 +70,22 @@ export default function PageShop() {
 
   return (
     <div className="bg-white min-h-screen">
-       <Header />
-      {/* Hero Section */}
+      <Header />
       <section className="relative w-full h-[600px] overflow-hidden">
         <img
           src={heroImages[currentHeroIndex]}
           alt="Hero"
           className="w-full h-full object-cover"
         />
-        {/* Tombol navigasi kiri */}
         <button
           onClick={prevImage}
-          className="absolute top-1/2 left-4 -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white rounded-full p-3 focus:outline-none transition"
-          aria-label="Previous Image"
+          className="absolute top-1/2 left-4 -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white rounded-full p-3"
         >
           &#8249;
         </button>
-
-        {/* Tombol navigasi kanan */}
         <button
           onClick={nextImage}
-          className="absolute top-1/2 right-4 -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white rounded-full p-3 focus:outline-none transition"
-          aria-label="Next Image"
+          className="absolute top-1/2 right-4 -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white rounded-full p-3"
         >
           &#8250;
         </button>
@@ -101,7 +96,6 @@ export default function PageShop() {
           Semua Produk
         </h2>
 
-        {/* Bar Pencarian */}
         <div className="flex justify-center mb-8">
           <input
             type="text"
@@ -118,27 +112,20 @@ export default function PageShop() {
           <p className="text-center text-gray-500">Produk tidak ditemukan.</p>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {filteredProducts.map((product, index) => (
+            {filteredProducts.map((product) => (
               <ProductCard
-                key={index}
-                image={product.image}
+                key={product.id}
+                photo={product.foto}
                 name={
                   <Link
                     to={`/products/${product.id}`}
                     className="text-green-800 hover:text-green-600"
                   >
-                    {product.name}
+                    {product.nama}
                   </Link>
                 }
-                price={product.price}
-                description={product.description}
-                onAdd={() => alert(`Added ${product.name} to cart!`)}
-                cardClass="bg-white p-4 rounded-xl shadow hover:shadow-lg hover:scale-105 transition-all duration-300 ease-in-out border border-gray-100"
-                imageClass="w-full h-40 object-cover rounded-lg"
-                nameClass="text-lg text-green-800"
-                priceClass="text-green-600 font-semibold"
-                descClass="text-gray-500"
-                buttonClass="bg-green-600 hover:bg-green-700"
+                price={product.harga}
+                description={product.deskripsi}
               />
             ))}
           </div>
