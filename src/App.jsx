@@ -27,6 +27,8 @@ import TestimoniPage from "./pages/TestimoniPage";
 import QuotesPelanggan from "./pages/QuotesPelanggan";
 import OurTeamPage from "./pages/OurTeamPage";
 import SimulasiWar from "./pages/SimulasiWar";
+import ArtikelList from "./pages/ArtikelList";
+import ArtikelDetail from "./pages/ArtikelDetail";
 
 
 
@@ -51,6 +53,9 @@ function App() {
           <Route path="/QuotesPelanggan" element={<QuotesPelanggan/>} />
           <Route path="/quotes/:id" element={<QuotesDetail />} />
           <Route path="/SimulasiWar" element={<SimulasiWar/>} />
+          <Route path="/ArtikelList" element={<ArtikelList/>} />
+          <Route path="/artikel/:id" element={<ArtikelDetail/>} />
+
           
         </Route>
 

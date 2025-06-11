@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "image_url": "https://images.unsplash.com/photo-1617814073196-18d1e00d455b",
+    "judul": "Tips Memilih Mobil Bekas Berkualitas",
+    "excerpt": "Memilih mobil bekas yang berkualitas memerlukan perhatian khusus agar tidak kecewa di kemudian hari.",
+    "tanggal": "2025-05-10",
+    "penulis": "Andi Pratama",
+    "views": 152,
+    "kategori": "Otomotif",
+    "tag1": "mobil bekas",
+    "tag2": "tips membeli",
+    "tag3": "otomotif"
+  },
+  {
+    "id": 2,
+    "image_url": "https://images.unsplash.com/photo-1603712403384-3fda3a4cba59",
+    "judul": "Panduan Servis Rutin Mobil",
+    "excerpt": "Servis rutin menjaga performa dan umur panjang kendaraan Anda.",
+    "tanggal": "2025-04-18",
+    "penulis": "Dina Ramadhani",
+    "views": 95,
+    "kategori": "Perawatan",
+    "tag1": "servis mobil",
+    "tag2": "perawatan",
+    "tag3": null
+  },
+  {
+    "id": 3,
+    "image_url": "https://images.unsplash.com/photo-1592194996308-7b43878e84a6",
+    "judul": "Cara Mengecek Legalitas Mobil Bekas",
+    "excerpt": "Langkah penting untuk memastikan mobil bekas yang dibeli legal dan aman.",
+    "tanggal": "2025-03-25",
+    "penulis": "Bayu Setiawan",
+    "views": 134,
+    "kategori": "Hukum",
+    "tag1": "cek legalitas",
+    "tag2": "mobil bekas",
+    "tag3": "keamanan"
+  }
+]
