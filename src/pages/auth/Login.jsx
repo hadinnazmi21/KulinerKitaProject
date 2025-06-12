@@ -6,8 +6,11 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Logika autentikasi di sini
+    // Logika autentikasi bisa ditambahkan di sini jika perlu
     console.log("Login dengan:", { email, password });
+
+    // Redirect ke halaman utama setelah login
+    window.location.href = "https://project-uas-fawn-pi.vercel.app/";
   };
 
   return (
