@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Software Engineer",
+    "location": "Remote",
+    "type": "Full-time",
+    "excerpt": "Bergabunglah dengan tim kami untuk mengembangkan aplikasi inovatif.",
+    "qualifications": [
+      "Menguasai JavaScript dan framework React atau Vue",
+      "Pengalaman minimal 2 tahun dalam pengembangan perangkat lunak",
+      "Mampu bekerja dalam tim secara remote"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Kreator",
+    "location": "Pekanbaru",
+    "type": "Full-time",
+    "excerpt": "Lakukan branding melalui konten di sosial media.",
+    "qualifications": [
+      "Kreatif dan mengikuti tren media sosial",
+      "Mampu membuat konten foto & video",
+      "Punya pengalaman minimal 1 tahun sebagai content creator"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Admin Website",
+    "location": "Remote",
+    "type": "Contract",
+    "excerpt": "Mengelola website secara online.",
+    "qualifications": [
+      "Terbiasa menggunakan CMS seperti WordPress",
+      "Cermat dan teliti dalam input/update data",
+      "Memahami dasar-dasar HTML & SEO"
+    ]
+  }
+]

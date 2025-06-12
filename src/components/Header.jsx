@@ -88,7 +88,7 @@ export default function Header() {
             >
               <li>
                 <Link
-                  to="/PageAboutUs"
+                  to="/CareerPage"
                   className="hover:bg-gray-100 rounded"
                 >
                   Career
