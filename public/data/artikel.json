@@ -1,41 +1,32 @@
 [
   {
     "id": 1,
-    "image_url": "https://images.unsplash.com/photo-1617814073196-18d1e00d455b",
-    "judul": "Tips Memilih Mobil Bekas Berkualitas",
-    "excerpt": "Memilih mobil bekas yang berkualitas memerlukan perhatian khusus agar tidak kecewa di kemudian hari.",
-    "tanggal": "2025-05-10",
-    "penulis": "Andi Pratama",
-    "views": 152,
-    "kategori": "Otomotif",
-    "tag1": "mobil bekas",
+    "image_url": "https://marketplace.canva.com/EAFTNt5EP1M/2/0/1600w/canva-merah-maksimalis-konten-instagram-iklan-promosi-produk-makanan-FXHDMUo0QUo.jpg",
+    "judul": "Tips Melakukan War Makanan di Waktu yang Tepat",
+    "excerpt": "Memilih waktu yang tepat agar hasil yang akurat.",
+    "kategori": "War Makanan",
+    "tag1": "Makanan Hits",
     "tag2": "tips membeli",
-    "tag3": "otomotif"
+    "tag3": "kuliner"
   },
   {
     "id": 2,
-    "image_url": "https://images.unsplash.com/photo-1603712403384-3fda3a4cba59",
-    "judul": "Panduan Servis Rutin Mobil",
-    "excerpt": "Servis rutin menjaga performa dan umur panjang kendaraan Anda.",
-    "tanggal": "2025-04-18",
-    "penulis": "Dina Ramadhani",
-    "views": 95,
-    "kategori": "Perawatan",
-    "tag1": "servis mobil",
-    "tag2": "perawatan",
-    "tag3": null
+    "image_url": "https://dikemas.com/uploads/2017/07/kemasan-produk-cantik-5-makanan-indonesia-ini-go-internasional.jpg",
+    "judul": "Panduan Memilih Makanan Hits di Pasaran",
+    "excerpt": "Cara mudah memilih makanan hits yang sedang tren dan lezat.",
+    "kategori": "War Makanan",
+    "tag1": "makanan hits",
+    "tag2": "rekomendasi",
+    "tag3": "kuliner"
   },
   {
     "id": 3,
-    "image_url": "https://images.unsplash.com/photo-1592194996308-7b43878e84a6",
-    "judul": "Cara Mengecek Legalitas Mobil Bekas",
-    "excerpt": "Langkah penting untuk memastikan mobil bekas yang dibeli legal dan aman.",
-    "tanggal": "2025-03-25",
-    "penulis": "Bayu Setiawan",
-    "views": 134,
-    "kategori": "Hukum",
-    "tag1": "cek legalitas",
-    "tag2": "mobil bekas",
-    "tag3": "keamanan"
+    "image_url": "https://dikemas.com/uploads/2022/04/2022-04-26-10-35-34-window.png",
+    "judul": "Cara Membeli Makanan Hits dengan Harga Terjangkau",
+    "excerpt": "Tips dan trik mendapatkan makanan hits favorit tanpa merogoh kocek dalam.",
+    "kategori": "War Makanan",
+    "tag1": "makanan hits",
+    "tag2": "hemat",
+    "tag3": "kuliner"
   }
 ]

@@ -1,66 +1,63 @@
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation, Link } from "react-router-dom";
 
 export default function AuthLayout() {
   const location = useLocation();
-  
-  // Fixing the path matching issue by adding leading slashes to paths
-  const isLoginPage = location.pathname === '/Login';
-  const isRegisterPage = location.pathname === '/Register';
-  const isForgotPasswordPage = location.pathname === '/Forgot';
+
+  const isLoginPage = location.pathname === "/login";
+  const isRegisterPage = location.pathname === "/register";
+  const isForgotPasswordPage = location.pathname === "/forgot";
 
   return (
-    <div className="min-h-screen w-full flex">
-      {/* Left: Form Login/Register */}
-      <div className="w-1/2 bg-white flex items-center justify-center p-10">
-        <div className="w-full max-w-md">
-          <Outlet />
-        </div>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 px-4 py-12">
+      {/* Form tanpa card */}
+      <div className="w-full max-w-md p-0">
+        <Outlet />
       </div>
 
-      {/* Right: Panel with different content based on the page */}
-      <div className="w-1/2 bg-gradient-to-br from-green-500 to-green-400 text-white flex flex-col items-center justify-center p-10 relative">
+      {/* Panel info tanpa card */}
+      <div className="mt-8 max-w-md text-center text-gray-700">
         {isLoginPage && (
           <>
-            <h2 className="text-3xl font-bold mb-4">New Here?</h2>
-            <p className="mb-6 text-center max-w-sm">
+            <h2 className="text-2xl font-bold mb-2 text-green-600">New Here?</h2>
+            <p className="mb-4">
               Sign up and discover a great amount of new opportunities!
             </p>
-            <a
-              href="/Register"
-              className="bg-white text-green-500 font-semibold py-2 px-6 rounded-full hover:bg-gray-100 transition"
+            <Link
+              to="/register"
+              className="inline-block bg-green-500 text-white font-semibold py-2 px-6 rounded-full hover:bg-green-600 transition"
             >
               Sign Up
-            </a>
+            </Link>
           </>
         )}
 
         {isRegisterPage && (
           <>
-            <h2 className="text-3xl font-bold mb-4">Already have an account?</h2>
-            <p className="mb-6 text-center max-w-sm">
+            <h2 className="text-2xl font-bold mb-2 text-green-600">Already have an account?</h2>
+            <p className="mb-4">
               If you already have an account, log in to continue.
             </p>
-            <a
-              href="/Login"
-              className="bg-white text-green-500 font-semibold py-2 px-6 rounded-full hover:bg-gray-100 transition"
+            <Link
+              to="/login"
+              className="inline-block bg-green-500 text-white font-semibold py-2 px-6 rounded-full hover:bg-green-600 transition"
             >
               Log In
-            </a>
+            </Link>
           </>
         )}
 
         {isForgotPasswordPage && (
           <>
-            <h2 className="text-3xl font-bold mb-4">Forgot Your Account?</h2>
-            <p className="mb-6 text-center max-w-sm">
+            <h2 className="text-2xl font-bold mb-2 text-green-600">Forgot Your Account?</h2>
+            <p className="mb-4">
               If you've forgotten your account, please log in.
             </p>
-            <a
-              href="/Login"
-              className="bg-white text-green-500 font-semibold py-2 px-6 rounded-full hover:bg-gray-100 transition"
+            <Link
+              to="/login"
+              className="inline-block bg-green-500 text-white font-semibold py-2 px-6 rounded-full hover:bg-green-600 transition"
             >
               Sign In
-            </a>
+            </Link>
           </>
         )}
       </div>
