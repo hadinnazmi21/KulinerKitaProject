@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "../components/Header"; // Ganti path sesuai struktur proyekmu
 import Footer from "../components/Footer";
 
 export default function SimulasiWar() {
+  const navigate = useNavigate();
+
   const product = {
     name: "Coklat Dubai",
     price: 150000,
@@ -190,7 +193,19 @@ Total Harga: Rp${calculateTotal().toLocaleString("id-ID")}`);
               </div>
 
               <button
-                type="submit"
+                type="button"
+                onClick={() => {
+                  navigate("/CheckoutPage", {
+                    state: {
+                      product,
+                      quantity,
+                      name,
+                      address,
+                      voucher,
+                      discountAmount,
+                    },
+                  });
+                }}
                 className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded transition"
               >
                 Beli Sekarang
