@@ -1,6 +1,7 @@
 /* Global Styles */
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'NunitoSans', sans-serif;
+  font-weight: 500; /* Mengatur ketebalan. Anda bisa coba 500 (medium), 600 (semibold), atau 700 (bold) */
   margin: 0;
   padding: 0;
   background-color: #f4f4f9;
