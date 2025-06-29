@@ -1,6 +1,8 @@
 import React, { Suspense } from "react";
 import "./assets/tailwind.css";
 import { Route, Routes } from "react-router-dom";
+
+// Semua komponen sekarang diimpor secara lazy
 const PageHome = React.lazy(() => import("./pages/PageHome"));
 const PageAboutUs = React.lazy(() => import("./pages/PageAboutUs"));
 const PageShop = React.lazy(() => import("./pages/PageShop"));
@@ -21,16 +23,14 @@ const PageShopDetail = React.lazy(() => import("./pages/PageShopDetail"));
 const QuotesDetail = React.lazy(() => import("./pages/QuotesDetail"));
 const CustomerReviewDetail = React.lazy(() => import("./pages/CustomerReviewDetail"));
 const FAQDetail = React.lazy(() => import("./pages/FAQDetail"));
-
-import Loading from "./components/Loading";
-import TestimoniPage from "./pages/TestimoniPage";
-import QuotesPelanggan from "./pages/QuotesPelanggan";
-import OurTeamPage from "./pages/OurTeamPage";
-import SimulasiWar from "./pages/SimulasiWar";
-import ArtikelList from "./pages/ArtikelList";
-import ArtikelDetail from "./pages/ArtikelDetail";
-import CheckoutPage from "./pages/CheckoutPage";
-
+const Loading = React.lazy(() => import("./components/Loading")); 
+const TestimoniPage = React.lazy(() => import("./pages/TestimoniPage"));
+const QuotesPelanggan = React.lazy(() => import("./pages/QuotesPelanggan"));
+const OurTeamPage = React.lazy(() => import("./pages/OurTeamPage"));
+const SimulasiWar = React.lazy(() => import("./pages/SimulasiWar"));
+const ArtikelList = React.lazy(() => import("./pages/ArtikelList"));
+const ArtikelDetail = React.lazy(() => import("./pages/ArtikelDetail"));
+const CheckoutPage = React.lazy(() => import("./pages/CheckoutPage"));
 
 
 function App() {
