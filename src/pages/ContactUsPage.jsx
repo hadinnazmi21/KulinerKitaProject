@@ -1,117 +1,106 @@
-import React, { useState } from "react";
-import Header from "../components/Header";
-import { contactUsAPI } from "../services/contactusAPI";
+import React from "react";
+import Header from "../components/Header"; // Pastikan path ini benar
+import Footer from "../components/Footer"; // Pastikan path ini benar
 
 export default function ContactUsPage() {
-  const [formData, setFormData] = useState({
-    nama: "",
-    email: "",
-    pesan: "",
-  });
-
-  const [status, setStatus] = useState(null);
-
-  const handleChange = (e) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    if (!formData.nama || !formData.email || !formData.pesan) {
-      setStatus({ success: false, message: "Mohon isi semua kolom." });
-      return;
-    }
-
-    try {
-      await contactUsAPI.createContact(formData);
-      setStatus({ success: true, message: "Pesan berhasil dikirim. Terima kasih!" });
-      setFormData({ nama: "", email: "", pesan: "" });
-    } catch (error) {
-      setStatus({ success: false, message: "Gagal mengirim pesan: " + error.message });
-    }
-  };
-
   return (
-    <div className="bg-green-50 min-h-screen text-green-900">
+    <div className="flex flex-col min-h-screen bg-white">
       <Header />
 
-     
-
-      {/* Contact Form */}
-      <section className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-lg mt-12 mb-24">
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <label htmlFor="nama" className="block text-green-800 font-semibold mb-1">
-              Nama Lengkap
-            </label>
-            <input
-              type="text"
-              id="nama"
-              name="nama"
-              value={formData.nama}
-              onChange={handleChange}
-              placeholder="Masukkan nama lengkap Anda"
-              className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-              required
+      {/* Main content area - background is white for the overall page */}
+      {/* py-12 px-4 sm:px-6 lg:px-8 memastikan padding responsif di berbagai ukuran layar */}
+      <main className="flex-grow py-12 px-4 sm:px-6 lg:px-8">
+        {/* Kontainer utama untuk gambar dan form */}
+        {/* max-w-7xl mx-auto untuk lebar maksimal dan posisi tengah */}
+        {/* rounded-lg shadow-xl overflow-hidden untuk gaya card dengan sudut membulat */}
+        {/* md:flex untuk layout dua kolom di medium screen ke atas, menumpuk di bawah md */}
+        {/* min-h-[550px] memastikan card memiliki tinggi minimum untuk tampilan yang konsisten */}
+        <div className="max-w-7xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden md:flex min-h-[550px]">
+          {/* Bagian Kiri: Gambar */}
+          {/* md:w-1/2 untuk mengambil setengah lebar di medium screen ke atas */}
+          {/* flex-shrink-0 untuk mencegah gambar menyusut jika ada konten lain yang membutuhkan ruang */}
+          <div className="md:w-1/2 flex-shrink-0">
+            <img
+              src="https://st.depositphotos.com/1017986/2197/i/450/depositphotos_21977667-stock-photo-friendly-female-helpline-operator.jpg"
+              alt="Hubungi Kami"
+              className="w-full h-full object-cover" // w-full h-full object-cover memastikan gambar mengisi penuh dan tidak terdistorsi
             />
           </div>
 
-          <div>
-            <label htmlFor="email" className="block text-green-800 font-semibold mb-1">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="Masukkan email Anda"
-              className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-              required
-            />
-          </div>
-
-          <div>
-            <label htmlFor="pesan" className="block text-green-800 font-semibold mb-1">
-              Pesan
-            </label>
-            <textarea
-              id="pesan"
-              name="pesan"
-              value={formData.pesan}
-              onChange={handleChange}
-              placeholder="Tulis pesan Anda di sini"
-              rows={5}
-              className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 resize-none"
-              required
-            />
-          </div>
-
-          {status && (
-            <p
-              className={`text-center font-semibold ${
-                status.success ? "text-green-600" : "text-red-600"
-              }`}
-            >
-              {status.message}
+          {/* Bagian Kanan: Form Kontak dengan background hijau muda profesional */}
+          {/* md:w-1/2 untuk mengambil setengah lebar di medium screen ke atas */}
+          {/* p-8 sm:p-12 lg:p-16 untuk padding responsif di dalam bagian form */}
+          {/* flex flex-col justify-center untuk menata konten form secara vertikal di tengah */}
+          {/* bg-green-50 memberikan latar belakang hijau muda yang profesional pada bagian form saja */}
+          <div className="md:w-1/2 p-8 sm:p-12 lg:p-16 flex flex-col justify-center bg-green-50">
+            <h2 className="text-3xl font-bold text-[#1A223E] mb-4 sm:mb-6 text-center md:text-left">
+              Hubungi Kami
+            </h2>
+            <p className="text-gray-700 mb-8 sm:mb-10 text-center md:text-left leading-relaxed">
+              Punya pertanyaan atau masukan? Jangan ragu untuk menghubungi kami! Kami siap membantu Anda.
             </p>
-          )}
 
-          <div className="text-center">
-            <button
-              type="submit"
-              className="bg-green-700 text-white font-semibold px-8 py-3 rounded-full shadow hover:bg-green-800 transition"
-            >
-              Kirim Pesan
-            </button>
+            <form className="space-y-8"> {/* space-y-8 memberikan jarak vertikal yang cukup antar elemen form */}
+              {/* Nama Lengkap */}
+              <div>
+                <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">
+                  Nama Lengkap <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="fullName"
+                  name="fullName"
+                  placeholder="Masukkan nama lengkap Anda"
+                  className="mt-1 block w-full px-4 py-2.5 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-base transition-all duration-200"
+                  required
+                />
+              </div>
+
+              {/* Email */}
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  Email <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Masukkan email Anda"
+                  className="mt-1 block w-full px-4 py-2.5 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-base transition-all duration-200"
+                  required
+                />
+              </div>
+
+              {/* Pesan */}
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  Pesan <span className="text-red-500">*</span>
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="6"
+                  placeholder="Tulis pesan Anda di sini"
+                  className="mt-1 block w-full px-4 py-2.5 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-base transition-all duration-200"
+                  required
+                ></textarea>
+              </div>
+
+              {/* Tombol Kirim Pesan */}
+              <div>
+                <button
+                  type="submit"
+                  className="w-full inline-flex justify-center py-3.5 px-6 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors duration-200"
+                >
+                  Kirim Pesan
+                </button>
+              </div>
+            </form>
           </div>
-        </form>
-      </section>
+        </div>
+      </main>
+
+      <Footer />
     </div>
   );
 }

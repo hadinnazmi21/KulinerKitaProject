@@ -20,16 +20,23 @@ export default function ArtikelList() {
       <Header />
 
       {/* Hero Section */}
-      <section className="w-full h-[500px]">
+      {/* w-full sudah memastikan 100% lebar viewport. */}
+      {/* object-cover akan memastikan gambar mengisi area, tapi bisa memotong vertikal. */}
+      {/* Pastikan tidak ada padding horizontal dari parent yang membatasi section ini. */}
+      <section className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden">
         <img
           src="/img/hero/Artikel.png" // Ganti dengan path gambar hero yang sesuai
           alt="War Makanan Hero"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
         />
       </section>
 
-      <main className="flex-1 p-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      {/* Main content area untuk daftar artikel */}
+      <main className="flex-1 py-10 px-4 sm:px-6 lg:px-8">
+        <h1 className="text-3xl font-bold text-[#1A223E] mb-8 text-center">
+          Daftar Artikel
+        </h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8">
           {articles.map((item) => (
             <ArtikelCard
               key={item.id}

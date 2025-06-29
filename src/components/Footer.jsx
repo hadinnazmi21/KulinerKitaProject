@@ -16,6 +16,7 @@ export default function Footer() {
       <div className="border-t border-gray-300 mb-10"></div>
 
       {/* Konten Footer */}
+      {/* The grid-cols-1 for mobile, sm:grid-cols-2 for small screens, and md:grid-cols-4 for medium screens and up ensures responsiveness */}
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-sm">
         {/* Brand Info */}
         <div>

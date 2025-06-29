@@ -37,7 +37,6 @@ export default function PageHome() {
   const [errorTestimoni, setErrorTestimoni] = useState("");
   const [errorProduk, setErrorProduk] = useState("");
 
-  // Fetch produk
   useEffect(() => {
     const fetchProduk = async () => {
       try {
@@ -51,7 +50,6 @@ export default function PageHome() {
     fetchProduk();
   }, []);
 
-  // Fetch testimoni
   useEffect(() => {
     const fetchTestimoni = async () => {
       setLoadingTestimoni(true);
@@ -83,7 +81,6 @@ export default function PageHome() {
           buttonLink="/PageShop"
         />
 
-        {/* Feature Cards */}
         <section className="py-12 bg-white">
           <div className="container mx-auto px-4">
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">
@@ -94,7 +91,7 @@ export default function PageHome() {
               Fitur dan pelayanan terbaik yang kami berikan untuk semua pembeli
               dan penjual
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {features.map((feature, idx) => (
                 <FeatureCard
                   key={idx}
@@ -107,9 +104,8 @@ export default function PageHome() {
           </div>
         </section>
 
-        {/* Produk Terlaris */}
         <section className="py-16 bg-white">
-          <div className="max-w-5xl mx-auto px-4">
+          <div className="max-w-6xl mx-auto px-4">
             <h2 className="text-2xl font-bold text-center text-green-700 mb-8">
               Produk Terlaris
             </h2>
@@ -120,7 +116,7 @@ export default function PageHome() {
                 Tidak ada produk tersedia.
               </p>
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                 {products.slice(0, 3).map((product) => (
                   <ProductCard
                     key={product.id}
@@ -135,9 +131,8 @@ export default function PageHome() {
           </div>
         </section>
 
-        {/* Testimoni */}
         <section className="py-12 bg-gray-50">
-          <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto px-4">
             <h2 className="text-2xl font-semibold text-center mb-6">
               Testimoni Pelanggan
             </h2>
@@ -154,7 +149,7 @@ export default function PageHome() {
                 Belum ada testimoni.
               </div>
             ) : (
-              <div className="flex justify-center flex-wrap gap-6">
+              <div className="flex flex-col sm:flex-row sm:justify-center flex-wrap gap-6 items-center">
                 {testimoniList.slice(0, 3).map((item) => (
                   <div key={item.id} className="w-full sm:w-80">
                     <TestimoniCard

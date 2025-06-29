@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import Header from "../components/Header";
-import { faqAPI } from "../services/faqAPI";
+import Header from "../components/Header"; // Pastikan path ini benar
+import Footer from "../components/Footer"; // Menambahkan import Footer
+import { faqAPI } from "../services/faqAPI"; // Pastikan path ini benar
 
 export default function FAQDetail() {
   const { id } = useParams();
@@ -13,6 +14,7 @@ export default function FAQDetail() {
     const fetchDetail = async () => {
       try {
         const data = await faqAPI.fetchNotes();
+        // Pastikan id dari URL adalah integer untuk perbandingan yang benar
         const selected = data.find((item) => item.id === parseInt(id));
         if (!selected) {
           setError("FAQ tidak ditemukan.");
@@ -20,41 +22,91 @@ export default function FAQDetail() {
           setFaq(selected);
         }
       } catch (err) {
+        console.error("Error fetching FAQ detail:", err);
         setError("Gagal mengambil data FAQ.");
       } finally {
         setLoading(false);
       }
     };
     fetchDetail();
-  }, [id]);
+  }, [id]); // id sebagai dependency
 
-  if (loading) return <p className="p-6 text-center">Memuat detail FAQ...</p>;
-  if (error)
+  // Tampilkan loading atau error secara full-page jika data belum siap
+  if (loading) {
     return (
-      <p className="p-6 text-center text-red-600 font-semibold">{error}</p>
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 text-gray-700">
+        <p className="p-6 text-lg">Memuat detail FAQ...</p>
+      </div>
     );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 text-red-600">
+        <p className="p-6 text-lg font-semibold">{error}</p>
+        <Link
+          to="/FAQPage"
+          className="mt-4 text-green-600 hover:text-green-800 font-semibold text-base sm:text-lg"
+        >
+          &larr; Kembali ke Daftar FAQ
+        </Link>
+      </div>
+    );
+  }
+
+  // Jika FAQ tidak ditemukan setelah loading selesai dan tidak ada error
+  if (!faq) {
+      return (
+          <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 text-gray-600">
+              <p className="p-6 text-lg">FAQ tidak ditemukan.</p>
+              <Link
+                  to="/FAQPage"
+                  className="mt-4 text-green-600 hover:text-green-800 font-semibold text-base sm:text-lg"
+              >
+                  &larr; Kembali ke Daftar FAQ
+              </Link>
+          </div>
+      );
+  }
+
 
   return (
-    <div className="bg-green-50 min-h-screen text-green-800">
+    <div className="min-h-screen flex flex-col bg-gray-50 text-gray-800"> {/* Latar belakang abu-abu muda */}
       <Header />
-      <section className="py-12 text-center">
-        <h1 className="text-4xl font-bold text-green-800 mb-2">Detail FAQ</h1>
-        <div className="w-24 h-1 bg-green-600 mx-auto mb-6 rounded"></div>
-      </section>
 
-      <section className="max-w-3xl mx-auto bg-white rounded-lg shadow p-8">
-        <h2 className="text-2xl font-semibold mb-4">{faq.pertanyaan}</h2>
-        <p className="text-gray-700">{faq.jawaban}</p>
+      <main className="flex-grow py-12 px-4 sm:px-6 lg:px-8">
+        {/* Header Bagian Detail FAQ */}
+        <section className="text-center mb-10">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-green-800 mb-3">
+            Detail FAQ
+          </h1>
+          
+        </section>
 
-        <div className="mt-8">
-          <Link
-            to="/FAQPage"
-            className="text-green-600 hover:text-green-800 font-semibold"
-          >
-            &larr; Kembali ke FAQ
-          </Link>
-        </div>
-      </section>
+        {/* Kontainer Detail FAQ */}
+        <section className="max-w-4xl mx-auto bg-white rounded-lg shadow-xl p-6 sm:p-8 md:p-10 border border-green-100">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4 sm:mb-6 text-gray-900 leading-tight">
+            {faq.pertanyaan}
+          </h2>
+          <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
+            {faq.jawaban}
+          </p>
+
+          <div className="mt-8 pt-6 border-t border-gray-200"> {/* Garis pemisah & padding atas */}
+            <Link
+              to="/FAQPage"
+              className="inline-flex items-center text-green-600 hover:text-green-800 font-semibold text-base sm:text-lg transition-colors"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              Kembali ke Daftar FAQ
+            </Link>
+          </div>
+        </section>
+      </main>
+
+      <Footer /> {/* Pastikan Footer di-import */}
     </div>
   );
 }
