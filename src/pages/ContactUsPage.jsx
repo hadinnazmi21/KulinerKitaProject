@@ -1,37 +1,26 @@
 import React from "react";
-import Header from "../components/Header"; // Pastikan path ini benar
-import Footer from "../components/Footer"; // Pastikan path ini benar
+import Header from "../components/Header"; 
+import Footer from "../components/Footer"; 
 
 export default function ContactUsPage() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <Header />
 
-      {/* Main content area - background is white for the overall page */}
-      {/* py-12 px-4 sm:px-6 lg:px-8 memastikan padding responsif di berbagai ukuran layar */}
+    
       <main className="flex-grow py-12 px-4 sm:px-6 lg:px-8">
-        {/* Kontainer utama untuk gambar dan form */}
-        {/* max-w-7xl mx-auto untuk lebar maksimal dan posisi tengah */}
-        {/* rounded-lg shadow-xl overflow-hidden untuk gaya card dengan sudut membulat */}
-        {/* md:flex untuk layout dua kolom di medium screen ke atas, menumpuk di bawah md */}
-        {/* min-h-[550px] memastikan card memiliki tinggi minimum untuk tampilan yang konsisten */}
+     
         <div className="max-w-7xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden md:flex min-h-[550px]">
-          {/* Bagian Kiri: Gambar */}
-          {/* md:w-1/2 untuk mengambil setengah lebar di medium screen ke atas */}
-          {/* flex-shrink-0 untuk mencegah gambar menyusut jika ada konten lain yang membutuhkan ruang */}
+  
           <div className="md:w-1/2 flex-shrink-0">
             <img
               src="https://st.depositphotos.com/1017986/2197/i/450/depositphotos_21977667-stock-photo-friendly-female-helpline-operator.jpg"
               alt="Hubungi Kami"
-              className="w-full h-full object-cover" // w-full h-full object-cover memastikan gambar mengisi penuh dan tidak terdistorsi
+              className="w-full h-full object-cover" 
             />
           </div>
 
-          {/* Bagian Kanan: Form Kontak dengan background hijau muda profesional */}
-          {/* md:w-1/2 untuk mengambil setengah lebar di medium screen ke atas */}
-          {/* p-8 sm:p-12 lg:p-16 untuk padding responsif di dalam bagian form */}
-          {/* flex flex-col justify-center untuk menata konten form secara vertikal di tengah */}
-          {/* bg-green-50 memberikan latar belakang hijau muda yang profesional pada bagian form saja */}
+         
           <div className="md:w-1/2 p-8 sm:p-12 lg:p-16 flex flex-col justify-center bg-green-50">
             <h2 className="text-3xl font-bold text-[#1A223E] mb-4 sm:mb-6 text-center md:text-left">
               Hubungi Kami
@@ -40,8 +29,7 @@ export default function ContactUsPage() {
               Punya pertanyaan atau masukan? Jangan ragu untuk menghubungi kami! Kami siap membantu Anda.
             </p>
 
-            <form className="space-y-8"> {/* space-y-8 memberikan jarak vertikal yang cukup antar elemen form */}
-              {/* Nama Lengkap */}
+            <form className="space-y-8"> 
               <div>
                 <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">
                   Nama Lengkap <span className="text-red-500">*</span>
@@ -86,7 +74,7 @@ export default function ContactUsPage() {
                 ></textarea>
               </div>
 
-              {/* Tombol Kirim Pesan */}
+             
               <div>
                 <button
                   type="submit"

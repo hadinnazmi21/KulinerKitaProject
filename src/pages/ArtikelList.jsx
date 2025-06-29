@@ -19,19 +19,16 @@ export default function ArtikelList() {
     <div className="flex flex-col min-h-screen">
       <Header />
 
-      {/* Hero Section */}
-      {/* w-full sudah memastikan 100% lebar viewport. */}
-      {/* object-cover akan memastikan gambar mengisi area, tapi bisa memotong vertikal. */}
-      {/* Pastikan tidak ada padding horizontal dari parent yang membatasi section ini. */}
+      
       <section className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden">
         <img
-          src="/img/hero/Artikel.png" // Ganti dengan path gambar hero yang sesuai
+          src="/img/hero/Artikel.png" 
           alt="War Makanan Hero"
           className="w-full h-full object-cover object-center"
         />
       </section>
 
-      {/* Main content area untuk daftar artikel */}
+      
       <main className="flex-1 py-10 px-4 sm:px-6 lg:px-8">
         <h1 className="text-3xl font-bold text-[#1A223E] mb-8 text-center">
           Daftar Artikel

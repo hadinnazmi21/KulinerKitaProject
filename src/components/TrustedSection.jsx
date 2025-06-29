@@ -8,7 +8,7 @@ export default function TrustedSection() {
       <p className="max-w-xl mx-auto text-green-800">
         Kami dipercaya oleh ribuan pelanggan yang puas dengan produk dan layanan kami.
       </p>
-      {/* Tambahkan logo atau testimoni singkat di sini jika perlu */}
+     
     </section>
   );
 }

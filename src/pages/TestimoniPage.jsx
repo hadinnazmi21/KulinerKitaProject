@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { notesAPI } from "../services/testimoniAPI"; // Pastikan path ini benar
-import Header from "../components/Header"; // Pastikan path ini benar
-import Footer from "../components/Footer"; // Pastikan path ini benar
-import LoadingSpinner from "../components/LoadingSpinner"; // Pastikan path ini benar
-import EmptyState from "../components/EmptyState"; // Pastikan path ini benar
-import TestimoniCard from "../components/TestimoniCard"; // Pastikan path ini benar
-import TestimoniForm from "../components/TestimoniForm"; // Pastikan path ini benar
+import { notesAPI } from "../services/testimoniAPI"; 
+import Header from "../components/Header"; 
+import Footer from "../components/Footer"; 
+import LoadingSpinner from "../components/LoadingSpinner"; 
+import EmptyState from "../components/EmptyState"; 
+import TestimoniCard from "../components/TestimoniCard"; 
 
 export default function TestimoniPage() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [uploading, setUploading] = useState(false);
   const [error, setError] = useState("");
   const [page, setPage] = useState(1);
   const perPage = 9;
@@ -22,7 +20,7 @@ export default function TestimoniPage() {
       setData(result);
     } catch (err) {
       setError("Gagal memuat testimoni.");
-      console.error("Error fetching testimonials:", err); // Log error for debugging
+      console.error("Error fetching testimonials:", err);
     } finally {
       setLoading(false);
     }
@@ -32,33 +30,11 @@ export default function TestimoniPage() {
     fetchData();
   }, []);
 
-  const handleSubmit = async (formData) => {
-    try {
-      setUploading(true);
-      setError("");
-
-      await notesAPI.createNote({
-        nama: formData.nama,
-        deskripsi: formData.deskripsi,
-        foto: formData.foto || "", // Foto diharapkan sebagai URL string
-      });
-
-      // Setelah sukses, muat ulang data dan kembali ke halaman 1
-      fetchData();
-      setPage(1);
-    } catch (err) {
-      console.error("Error submitting testimoni:", err); // Log error for debugging
-      setError("Gagal mengirim testimoni. Silakan coba lagi.");
-    } finally {
-      setUploading(false);
-    }
-  };
-
   const paginated = data.slice((page - 1) * perPage, page * perPage);
   const totalPages = Math.ceil(data.length / perPage);
 
   return (
-    <div className="min-h-screen flex flex-col bg-green-50 text-green-900"> {/* Mengubah latar belakang halaman */}
+    <div className="min-h-screen flex flex-col bg-white text-green-900">
       <Header />
 
       <main className="flex-grow py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -74,14 +50,14 @@ export default function TestimoniPage() {
           Testimoni Pelanggan
         </h1>
 
-        {/* Loading / Empty State */}
+        {/* Loading / Empty State / Daftar Testimoni */}
         {loading ? (
           <LoadingSpinner text="Memuat testimoni..." />
         ) : data.length === 0 ? (
-          <EmptyState text="Belum ada testimoni. Jadilah yang pertama!" />
+          <EmptyState text="Belum ada testimoni. Bagikan pengalaman Anda di halaman detail produk!" />
         ) : (
-          /* Bagian Daftar Testimoni */
-          <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"> {/* Mengatur gap dan kolom */}
+          /* Bagian Daftar Testimoni - Sudah Responsif */
+          <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {paginated.map((item) => (
               <TestimoniCard
                 key={item.id}
@@ -93,9 +69,9 @@ export default function TestimoniPage() {
           </section>
         )}
 
-        {/* Pagination */}
+        {/* Pagination - Sudah Responsif */}
         {totalPages > 1 && (
-          <div className="flex justify-center mt-10 mb-16"> {/* Menambah mb untuk jarak ke form */}
+          <div className="flex justify-center mt-10 mb-16">
             <div className="flex space-x-2">
               {Array.from({ length: totalPages }, (_, i) => i + 1).map(
                 (num) => (
@@ -105,8 +81,8 @@ export default function TestimoniPage() {
                     className={`px-4 py-2 rounded-md font-semibold border transition-colors duration-200
                       ${
                         page === num
-                          ? "bg-green-600 text-white border-green-700" // Warna tombol aktif lebih solid
-                          : "bg-white text-green-700 border-green-300 hover:bg-green-100 hover:border-green-400" // Hover yang lebih jelas
+                          ? "bg-green-600 text-white border-green-700"
+                          : "bg-white text-green-700 border-green-300 hover:bg-green-100 hover:border-green-400"
                       }`}
                   >
                     {num}
@@ -116,22 +92,6 @@ export default function TestimoniPage() {
             </div>
           </div>
         )}
-
-        {/* Bagian Kirim Testimoni (Form) - Diperindah */}
-        <section className="max-w-xl mx-auto mt-16 p-8 bg-white rounded-lg shadow-xl"> {/* Container baru untuk form */}
-          <h2 className="text-3xl font-bold text-[#1A223E] mb-4 text-center">
-            Bagikan Pengalaman Anda!
-          </h2>
-          <p className="text-gray-700 mb-8 text-center leading-relaxed">
-            Kami sangat menghargai ulasan Anda. Mari bantu orang lain menemukan kuliner terbaik!
-          </p>
-          <TestimoniForm onSubmit={handleSubmit} disabled={uploading} />
-          {uploading && (
-            <div className="text-center text-green-600 mt-4">
-              Mengirim testimoni...
-            </div>
-          )}
-        </section>
       </main>
 
       <Footer />

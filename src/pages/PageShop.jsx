@@ -1,10 +1,8 @@
-// File: src/pages/PageShop.jsx
-
 import React, { useEffect, useState } from "react";
-import ProductCard from "../components/ProductCard"; // Pastikan path ini benar
+import ProductCard from "../components/ProductCard"; 
 import { Link } from "react-router-dom";
-import Header from "../components/Header"; // Pastikan path ini benar
-import Footer from "../components/Footer"; // Menambahkan import Footer
+import Header from "../components/Header"; 
+import Footer from "../components/Footer"; 
 import { produkAPI } from "../services/produkAPI";
 
 export default function PageShop() {
@@ -16,8 +14,8 @@ export default function PageShop() {
   const heroImages = [
     "/img/hero/hero-1.png",
     "/img/hero/hero-2.png",
-    "/img/hero/hero-1.png", // Anda bisa mengubah ini menjadi gambar hero yang berbeda
-    "/img/hero/hero-2.png", // Anda bisa mengubah ini menjadi gambar hero yang berbeda
+    "/img/hero/hero-1.png", 
+    "/img/hero/hero-2.png", 
   ];
 
   const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
@@ -27,7 +25,7 @@ export default function PageShop() {
       setCurrentHeroIndex((prev) =>
         prev === heroImages.length - 1 ? 0 : prev + 1
       );
-    }, 5000); // Ganti gambar setiap 5 detik
+    }, 5000); 
     return () => clearInterval(interval);
   }, [heroImages.length]);
 
@@ -73,37 +71,37 @@ export default function PageShop() {
     <div className="bg-white min-h-screen flex flex-col">
       <Header />
 
-      {/* Hero Section - Full width dan tinggi responsif */}
+      
       <section className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden">
         <img
           src={heroImages[currentHeroIndex]}
           alt="Hero Banner Produk"
-          className="w-full h-full object-cover object-center" // object-cover memastikan gambar mengisi penuh tanpa distorsi horizontal
+          className="w-full h-full object-cover object-center" 
         />
-        {/* Tombol navigasi hero */}
+        
         <button
           onClick={prevImage}
           className="absolute top-1/2 left-4 -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white rounded-full p-2 sm:p-3 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white"
         >
-          &#8249; {/* Left arrow */}
+          &#8249; 
         </button>
         <button
           onClick={nextImage}
           className="absolute top-1/2 right-4 -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white rounded-full p-2 sm:p-3 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white"
         >
-          &#8250; {/* Right arrow */}
+          &#8250; 
         </button>
       </section>
 
-      {/* Konten Utama (Search Bar & Daftar Produk) */}
-      <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"> {/* Padding responsif */}
-        {/* Judul Bagian Produk */}
+      
+      <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"> 
+        
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-green-700 mb-8 text-center">
           Semua Produk Kuliner
         </h2>
 
         {/* Search Bar */}
-        <div className="flex justify-center mb-10"> {/* Menambah mb untuk jarak */}
+        <div className="flex justify-center mb-10"> 
           <input
             type="text"
             placeholder="Cari produk berdasarkan nama..."
@@ -113,7 +111,7 @@ export default function PageShop() {
           />
         </div>
 
-        {/* Kondisi Tampilan Produk */}
+        
         {error ? (
           <p className="text-red-500 text-center text-lg">{error}</p>
         ) : filteredProducts.length === 0 && search !== "" ? (
@@ -121,8 +119,8 @@ export default function PageShop() {
         ) : filteredProducts.length === 0 && search === "" ? (
           <p className="text-center text-gray-500 text-lg">Tidak ada produk yang tersedia saat ini.</p>
         ) : (
-          /* Grid Produk - DIUBAH: grid-cols-1 untuk mobile */
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8"> {/* DIUBAH DI SINI */}
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8"> 
             {filteredProducts.map((product) => (
               <ProductCard
                 key={product.id}
@@ -144,7 +142,7 @@ export default function PageShop() {
         )}
       </main>
 
-      <Footer /> {/* Pastikan Footer di-import */}
+      <Footer /> 
     </div>
   );
 }

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import Header from "../components/Header"; // Pastikan path ini benar
-import Footer from "../components/Footer"; // Menambahkan import Footer
-import { faqAPI } from "../services/faqAPI"; // Pastikan path ini benar
+import Header from "../components/Header"; 
+import Footer from "../components/Footer"; 
+import { faqAPI } from "../services/faqAPI"; 
 
 export default function FAQDetail() {
   const { id } = useParams();
@@ -14,7 +14,7 @@ export default function FAQDetail() {
     const fetchDetail = async () => {
       try {
         const data = await faqAPI.fetchNotes();
-        // Pastikan id dari URL adalah integer untuk perbandingan yang benar
+        
         const selected = data.find((item) => item.id === parseInt(id));
         if (!selected) {
           setError("FAQ tidak ditemukan.");
@@ -29,9 +29,9 @@ export default function FAQDetail() {
       }
     };
     fetchDetail();
-  }, [id]); // id sebagai dependency
+  }, [id]); 
 
-  // Tampilkan loading atau error secara full-page jika data belum siap
+ 
   if (loading) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 text-gray-700">
@@ -54,7 +54,7 @@ export default function FAQDetail() {
     );
   }
 
-  // Jika FAQ tidak ditemukan setelah loading selesai dan tidak ada error
+ 
   if (!faq) {
       return (
           <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 text-gray-600">
@@ -71,11 +71,11 @@ export default function FAQDetail() {
 
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50 text-gray-800"> {/* Latar belakang abu-abu muda */}
+    <div className="min-h-screen flex flex-col bg-gray-50 text-gray-800"> 
       <Header />
 
       <main className="flex-grow py-12 px-4 sm:px-6 lg:px-8">
-        {/* Header Bagian Detail FAQ */}
+      
         <section className="text-center mb-10">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-green-800 mb-3">
             Detail FAQ
@@ -83,7 +83,6 @@ export default function FAQDetail() {
           
         </section>
 
-        {/* Kontainer Detail FAQ */}
         <section className="max-w-4xl mx-auto bg-white rounded-lg shadow-xl p-6 sm:p-8 md:p-10 border border-green-100">
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4 sm:mb-6 text-gray-900 leading-tight">
             {faq.pertanyaan}
@@ -92,7 +91,7 @@ export default function FAQDetail() {
             {faq.jawaban}
           </p>
 
-          <div className="mt-8 pt-6 border-t border-gray-200"> {/* Garis pemisah & padding atas */}
+          <div className="mt-8 pt-6 border-t border-gray-200"> 
             <Link
               to="/FAQPage"
               className="inline-flex items-center text-green-600 hover:text-green-800 font-semibold text-base sm:text-lg transition-colors"
@@ -106,7 +105,7 @@ export default function FAQDetail() {
         </section>
       </main>
 
-      <Footer /> {/* Pastikan Footer di-import */}
+      <Footer /> 
     </div>
   );
 }

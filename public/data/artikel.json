@@ -1,32 +1,90 @@
 [
-  {
+ {
     "id": 1,
     "image_url": "https://marketplace.canva.com/EAFTNt5EP1M/2/0/1600w/canva-merah-maksimalis-konten-instagram-iklan-promosi-produk-makanan-FXHDMUo0QUo.jpg",
     "judul": "Tips Melakukan War Makanan di Waktu yang Tepat",
-    "excerpt": "Memilih waktu yang tepat agar hasil yang akurat.",
+    "excerpt": "Memilih waktu yang tepat agar hasil yang akurat dalam perburuan kuliner hits.",
     "kategori": "War Makanan",
     "tag1": "Makanan Hits",
     "tag2": "tips membeli",
-    "tag3": "kuliner"
+    "tag3": "kuliner",
+    "isi": "Melakukan 'war makanan' atau berburu kuliner viral membutuhkan strategi khusus, terutama dalam menentukan waktu yang paling tepat. Banyak makanan hits yang memiliki kuota terbatas atau waktu penjualan spesifik, sehingga ketepatan waktu menjadi kunci utama untuk mendapatkan hidangan impian Anda. Memantau media sosial penjual, bergabung dengan komunitas pemburu kuliner, dan menyiapkan metode pembayaran tercepat adalah beberapa langkah awal yang krusial. Selain itu, kecepatan internet dan perangkat yang mumpuni juga sangat berpengaruh pada kesuksesan war Anda."
   },
   {
     "id": 2,
     "image_url": "https://dikemas.com/uploads/2017/07/kemasan-produk-cantik-5-makanan-indonesia-ini-go-internasional.jpg",
     "judul": "Panduan Memilih Makanan Hits di Pasaran",
-    "excerpt": "Cara mudah memilih makanan hits yang sedang tren dan lezat.",
+    "excerpt": "Cara mudah memilih makanan hits yang sedang tren dan lezat di tengah banyaknya pilihan.",
     "kategori": "War Makanan",
     "tag1": "makanan hits",
     "tag2": "rekomendasi",
-    "tag3": "kuliner"
+    "tag3": "kuliner",
+    "isi": "Memilih makanan hits yang benar-benar berkualitas di pasaran bisa menjadi tantangan tersendiri, mengingat tren kuliner yang terus berubah dengan cepat. Penting untuk tidak hanya terpaku pada popularitas semata, tetapi juga mempertimbangkan ulasan jujur dari konsumen lain, bahan baku yang digunakan, serta kebersihan proses produksinya. Carilah informasi dari berbagai sumber terpercaya dan jangan ragu mencoba varian baru yang mungkin belum terlalu viral, namun memiliki potensi rasa yang luar biasa.\n\nSelain itu, perhatikan juga nilai gizi dan komposisi bahan dalam makanan yang Anda pilih. Makanan hits tidak selalu berarti tidak sehat. Banyak inovator kuliner kini menawarkan pilihan yang lezat sekaligus seimbang dari segi nutrisi. Dengan sedikit riset dan keberanian untuk bereksplorasi, Anda akan menemukan permata kuliner yang tidak hanya memanjakan lidah tetapi juga memenuhi kriteria personal Anda."
   },
   {
     "id": 3,
     "image_url": "https://dikemas.com/uploads/2022/04/2022-04-26-10-35-34-window.png",
     "judul": "Cara Membeli Makanan Hits dengan Harga Terjangkau",
-    "excerpt": "Tips dan trik mendapatkan makanan hits favorit tanpa merogoh kocek dalam.",
+    "excerpt": "Tips dan trik mendapatkan makanan hits favorit tanpa merogoh kocek dalam-dalam.",
     "kategori": "War Makanan",
     "tag1": "makanan hits",
     "tag2": "hemat",
-    "tag3": "kuliner"
+    "tag3": "kuliner",
+    "isi": "Mencicipi makanan hits yang sedang viral seringkali diidentikkan dengan harga yang tinggi atau antrean panjang. Namun, ada beberapa strategi cerdas yang bisa Anda terapkan untuk menikmati hidangan tersebut tanpa harus boros. Salah satunya adalah dengan memanfaatkan promo atau diskon yang sering ditawarkan oleh platform pengiriman makanan atau aplikasi e-wallet. Ikuti juga akun media sosial penjual, karena mereka seringkali memberikan penawaran khusus bagi follower setia.\n\nPilihan lainnya adalah dengan mencari tahu apakah ada opsi pembelian dalam jumlah besar (bundling) yang lebih hemat per porsi, atau berburu saat jam-jam sepi di luar waktu makan siang/malam. Beberapa UMKM juga menawarkan harga khusus untuk pembelian langsung di tempat. Dengan sedikit usaha dan perencanaan, Anda bisa tetap update dengan tren kuliner tanpa perlu khawatir akan anggaran."
+  },
+  {
+    "id": 4,
+    "image_url": "https://i.pinimg.com/736x/87/42/47/874247076a39d891ce5c9c381d6f1201.jpg",
+    "judul": "Resep Rahasia Seblak Viral: Pedasnya Nagih!",
+    "excerpt": "Intip resep rahasia seblak yang viral di media sosial, dijamin bikin ketagihan dengan rasa pedasnya yang mantap.",
+    "kategori": "Resep Kuliner",
+    "tag1": "seblak",
+    "tag2": "resep",
+    "tag3": "pedas",
+    "isi": "Seblak, hidangan pedas khas Bandung ini, telah menjadi fenomena kuliner di seluruh Indonesia. Rasanya yang gurih, pedas, dan teksturnya yang kenyal membuat banyak orang ketagihan. Resep seblak viral ini melibatkan kombinasi bumbu rahasia dan teknik memasak yang tepat untuk menghasilkan kuah yang kaya rasa dan isian yang meresap sempurna. Mulai dari kerupuk, makaroni, telur, hingga berbagai jenis sosis dan bakso bisa menjadi isian utama.\n\nKunci kenikmatan seblak terletak pada racikan bumbu kencur, bawang putih, cabai rawit, dan rempah lainnya yang ditumis hingga harum. Tingkat kepedasan bisa disesuaikan dengan selera masing-masing, dari level 'ramah lidah' hingga 'membakar'. Pastikan semua bahan dimasak hingga matang sempurna dan bumbu meresap agar setiap suapan memberikan sensasi pedas dan gurih yang tak terlupakan. Selamat mencoba dan rasakan sensasi pedasnya!"
+  },
+  {
+    "id": 5,
+    "image_url": "https://i.pinimg.com/736x/6f/70/4e/6f704e6c382103f6f369c0d381c81c4e.jpg",
+    "judul": "5 Tips Membuat Kopi Susu Kekinian Ala Cafe",
+    "excerpt": "Rahasia di balik kopi susu ala cafe yang creamy dan nikmat, bisa Anda buat sendiri di rumah.",
+    "kategori": "Minuman",
+    "tag1": "kopi",
+    "tag2": "minuman",
+    "tag3": "resep",
+    "isi": "Siapa yang tidak suka kopi susu kekinian ala cafe? Minuman ini telah menjadi favorit banyak orang karena perpaduan rasa kopi yang kuat dengan creamy-nya susu. Membuatnya di rumah ternyata tidak sesulit yang dibayangkan, asalkan Anda tahu beberapa tips rahasianya. Pertama, pilih biji kopi berkualitas dan giling sesaat sebelum diseduh untuk menjaga kesegarannya. Kedua, perhatikan rasio kopi dan susu; ini adalah kunci untuk mencapai keseimbangan rasa yang sempurna.\n\nTips ketiga adalah teknik steaming susu. Jika Anda punya mesin espresso, manfaatkan fitur steam wand untuk menghasilkan microfoam yang halus dan creamy. Namun, jika tidak, Anda bisa menggunakan frother manual atau bahkan kocokan tangan untuk mendapatkan tekstur yang mirip. Keempat, tambahkan sedikit pemanis seperti sirup gula aren atau vanilla untuk sentuhan rasa yang lebih kompleks. Terakhir, sajikan dalam gelas favorit Anda untuk pengalaman ngopi ala cafe yang autentik di rumah."
+  },
+  {
+    "id": 6,
+    "image_url": "https://cdn.idntimes.com/content-images/community/2021/04/dari-dapur-ku-foto-resep-makanan-jepang-ala-rumahan-instagram-instagram-idntimes-1e1b43b35520894562086e37996c1411_600x400.jpg",
+    "judul": "Mengenal Lebih Dekat Tren Makanan Jepang Rumahan",
+    "excerpt": "Jelajahi keunikan dan kesederhanaan hidangan Jepang yang populer untuk dimasak di rumah.",
+    "kategori": "Kuliner Internasional",
+    "tag1": "Jepang",
+    "tag2": "masakan",
+    "tag3": "rumahan",
+    "isi": "Makanan Jepang tidak hanya tentang sushi dan ramen yang sering kita temukan di restoran. Ada dunia kuliner rumahan Jepang yang kaya akan rasa dan filosofi kesederhanaan, kini semakin populer untuk dimasak di rumah. Hidangan seperti kare Jepang, donburi (nasi mangkuk), atau tamagoyaki (omelet gulung) menawarkan cita rasa autentik dengan bahan-bahan yang relatif mudah ditemukan.\n\nKarakteristik utama masakan Jepang rumahan adalah keseimbangan rasa, presentasi yang apik, dan penggunaan bahan-bahan segar. Teknik memasak yang sederhana namun presisi menjadi kunci. Menguasai beberapa bumbu dasar seperti dashi, kecap asin, mirin, dan sake sudah cukup untuk membuka pintu ke berbagai hidangan lezat. Memasak hidangan Jepang di rumah bukan hanya tentang makanan, tetapi juga tentang menikmati proses dan filosofi di baliknya."
+  },
+  {
+    "id": 7,
+    "image_url": "https://asset.kompas.com/crops/W2Y2Q6N-rB0Q4I-Q4C7K0wR3A7A=/0x0:1000x667/750x500/data/photo/2022/01/18/61e687893b08e.jpg",
+    "judul": "Manfaat Tersembunyi Makanan Fermentasi untuk Kesehatan",
+    "excerpt": "Pelajari bagaimana makanan fermentasi dapat meningkatkan kesehatan pencernaan dan imunitas tubuh Anda.",
+    "kategori": "Gaya Hidup Sehat",
+    "tag1": "kesehatan",
+    "tag2": "fermentasi",
+    "tag3": "nutrisi",
+    "isi": "Makanan fermentasi telah menjadi bagian tak terpisahkan dari diet manusia selama ribuan tahun, dan kini kembali populer berkat berbagai manfaat kesehatannya yang tersembunyi. Proses fermentasi, yang melibatkan mikroorganisme mengubah karbohidrat menjadi alkohol atau asam, tidak hanya mengawetkan makanan tetapi juga meningkatkan kandungan nutrisinya serta mempermudah pencernaan. Contoh makanan fermentasi populer meliputi kimchi, sauerkraut, yogurt, kefir, dan tempe.\n\nManfaat utama makanan fermentasi terletak pada kemampuannya untuk meningkatkan kesehatan usus. Usus yang sehat berkorelasi langsung dengan sistem kekebalan tubuh yang kuat, penyerapan nutrisi yang lebih baik, dan bahkan perbaikan mood. Probiotik alami yang terkandung dalam makanan fermentasi membantu menyeimbangkan flora usus, mengurangi peradangan, dan melindungi tubuh dari patogen. Dengan memasukkan makanan fermentasi ke dalam diet harian, Anda tidak hanya menikmati rasa yang unik tetapi juga berinvestasi pada kesehatan jangka panjang."
+  },
+  {
+    "id": 8,
+    "image_url": "https://asset.kompas.com/crops/9h2bN8h0L9p0P8h0X8k8z8p8z8k=/0x0:1000x667/750x500/data/photo/2023/07/28/64c39151c8b32.jpg",
+    "judul": "Dibalik Kelezatan: Makanan Cepat Saji dan Dampaknya",
+    "excerpt": "Analisis mendalam tentang sisi lain makanan cepat saji yang sering kita konsumsi, dari rasa hingga kesehatan.",
+    "kategori": "Gaya Hidup",
+    "tag1": "fast food",
+    "tag2": "kesehatan",
+    "tag3": "gaya hidup",
+    "isi": "Makanan cepat saji atau 'fast food' telah menjadi bagian tak terpisahkan dari gaya hidup modern, menawarkan kecepatan dan kenyamanan yang sulit ditolak. Kelezatannya yang instan dan harganya yang terjangkau membuatnya menjadi pilihan populer di tengah kesibukan. Namun, di balik daya tariknya, ada berbagai dampak yang perlu kita sadari, baik bagi kesehatan pribadi maupun lingkungan. Kandungan kalori, garam, gula, dan lemak jenuh yang tinggi seringkali menjadi sorotan utama, berkontribusi pada masalah kesehatan seperti obesitas dan penyakit jantung.\n\nSelain itu, dampak lingkungan dari produksi dan pengemasan makanan cepat saji juga tidak bisa diabaikan. Produksi massal seringkali membutuhkan sumber daya yang besar dan menghasilkan banyak limbah. Oleh karena itu, penting bagi kita untuk membuat pilihan yang lebih bijak dalam mengonsumsi makanan cepat saji, mempertimbangkan frekuensi, porsi, dan mencari alternatif yang lebih sehat. Kesadaran akan dampak ini adalah langkah awal menuju gaya hidup yang lebih bertanggung jawab."
   }
 ]

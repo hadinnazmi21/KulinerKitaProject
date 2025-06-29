@@ -12,13 +12,12 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <footer className="bg-white text-gray-500 px-6 pt-10">
-      {/* Garis Atas */}
+     
       <div className="border-t border-gray-300 mb-10"></div>
 
-      {/* Konten Footer */}
-      {/* The grid-cols-1 for mobile, sm:grid-cols-2 for small screens, and md:grid-cols-4 for medium screens and up ensures responsiveness */}
+  
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-sm">
-        {/* Brand Info */}
+        
         <div>
           <h4 className="text-xl font-bold text-green-700 mb-2">
             Kuliner<span className="text-black">Kita</span>
@@ -29,7 +28,7 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Informasi */}
+       
         <div>
           <h5 className="font-semibold mb-2">Information</h5>
           <ul className="space-y-1 text-gray-600">
@@ -51,7 +50,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Quick Links */}
+    
         <div>
           <h5 className="font-semibold mb-2">Quick Links</h5>
           <ul className="space-y-1 text-gray-600">
@@ -73,7 +72,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Sosial Media */}
+       
         <div>
           <h5 className="font-semibold mb-2">Follow Kami</h5>
           <ul className="space-y-1 text-gray-600">
@@ -96,7 +95,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Garis Bawah dan Copyright */}
+    
       <div className="mt-10 border-t border-gray-300">
         <div className="max-w-6xl mx-auto text-center text-sm text-gray-500 py-4">
           © {new Date().getFullYear()} KulinerKita | All Rights Reserved

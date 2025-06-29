@@ -8,7 +8,7 @@ export default function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Logika pendaftaran di sini, misalnya validasi password dan submit ke API
+    
     if (password !== confirmPassword) {
       alert("Password dan konfirmasi password tidak sama!");
       return;

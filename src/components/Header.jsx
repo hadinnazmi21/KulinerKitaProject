@@ -11,7 +11,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full bg-white shadow-md">
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-3">
-        {/* Logo & Brand */}
+  
         <div className="flex items-center space-x-2">
           <img
             src="/img/J.png"
@@ -21,7 +21,7 @@ export default function Header() {
           <span className="font-bold text-lg text-green-700">KulinerKita</span>
         </div>
 
-        {/* Hamburger Menu Icon (Mobile) */}
+      
         <div className="md:hidden flex items-center">
           <button onClick={toggleMobileMenu} className="text-gray-800 focus:outline-none">
             <svg
@@ -50,13 +50,13 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Desktop Navigation */}
+   
         <nav className="hidden md:flex items-center space-x-4 text-sm font-medium text-gray-800">
           <Link className="hover:text-green-600 transition" to="/">
             Home
           </Link>
 
-          {/* Dropdown About */}
+        
           <div className="dropdown dropdown-hover">
             <div
               tabIndex={0}
@@ -108,7 +108,7 @@ export default function Header() {
             Testimoni
           </Link>
 
-          {/* Dropdown Lainnya */}
+        
           <div className="dropdown dropdown-hover">
             <div
               tabIndex={0}
@@ -152,7 +152,7 @@ export default function Header() {
           </Link>
         </nav>
 
-        {/* Login/Register for Desktop */}
+       
         <div className="ml-4 hidden md:block">
           <Link
             to="/Login"
@@ -163,7 +163,7 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+    
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white shadow-lg py-4">
           <nav className="flex flex-col items-start px-6 space-y-3 text-sm font-medium text-gray-800">
@@ -171,7 +171,6 @@ export default function Header() {
               Home
             </Link>
 
-            {/* Mobile Dropdown About */}
             <div className="w-full">
               <details className="dropdown-details">
                 <summary className="hover:text-green-600 transition cursor-pointer py-1">
@@ -222,7 +221,7 @@ export default function Header() {
               Testimoni
             </Link>
 
-            {/* Mobile Dropdown Lainnya */}
+          
             <div className="w-full">
               <details className="dropdown-details">
                 <summary className="hover:text-green-600 transition cursor-pointer py-1">

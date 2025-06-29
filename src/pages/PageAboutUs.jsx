@@ -5,7 +5,7 @@ import { GrSecure } from "react-icons/gr";
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import CardAboutUs from "../components/CardAboutUs"; // Assuming this component exists and is also responsive
+import CardAboutUs from "../components/CardAboutUs"; 
 
 export default function PageAboutUs() {
   return (
@@ -14,11 +14,11 @@ export default function PageAboutUs() {
 
       <section className="py-10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          {/* Main Title */}
+   
           <h2 className="text-3xl sm:text-4xl font-bold text-[#35a828] mb-4 text-center md:text-left">
             Tentang <span className="text-[#1A223E]">Kuliner Kita</span>
           </h2>
-          {/* Main Description */}
+       
           <p className="text-gray-700 mb-10 leading-relaxed text-center md:text-left max-w-3xl mx-auto md:mx-0">
             Platform terpercaya untuk jual beli makanan viral dan langka dari
             Instagram &amp; TikTok, dengan proses mudah, aman, dan transparan.
@@ -26,9 +26,9 @@ export default function PageAboutUs() {
             Temukan kuliner kekinian favoritmu tanpa ribet!
           </p>
 
-          {/* Who We Are Section */}
+
           <div className="md:flex md:items-center md:gap-8 mb-12">
-            {/* Text Content */}
+ 
             <div className="md:w-1/2 mb-8 md:mb-0">
               <h3 className="text-2xl sm:text-3xl font-semibold text-[#1A223E] mb-5 text-center md:text-left">
                 Siapa Kami?
@@ -52,22 +52,22 @@ export default function PageAboutUs() {
                 </li>
               </ul>
             </div>
-            {/* Image */}
+    
             <div className="md:w-1/2 flex justify-center">
               <img
                 src="/img/1.jpg"
                 alt="Ilustrasi war kuliner kekinian"
-                // Made image responsive with max-width and height
+              
                 className="rounded-lg shadow-md w-full max-w-[400px] h-[300px] object-cover"
               />
             </div>
           </div>
 
-          {/* Why Choose Us Section */}
+      
           <h3 className="text-2xl sm:text-3xl font-semibold text-[#1A223E] mb-6 text-center">
             Kenapa Pilih <span className="text-[#35a828]">Kuliner Kita?</span>
           </h3>
-          {/* Cards Grid - Added sm:grid-cols-2 for tablet view */}
+   
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-4">
             <CardAboutUs
               icon={<GrSecure className="text-4xl text-green-700 mb-2" />}
@@ -93,7 +93,6 @@ export default function PageAboutUs() {
         </div>
       </section>
 
-      {/* This div is good for pushing the footer to the bottom on short content pages */}
       <div className="flex-grow" />
       <Footer />
     </div>
