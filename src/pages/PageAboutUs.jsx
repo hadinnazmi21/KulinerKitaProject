@@ -55,10 +55,10 @@ export default function PageAboutUs() {
     
             <div className="md:w-1/2 flex justify-center">
               <img
-                src="/img/1.jpg"
+                src="/img/AboutUs.png"
                 alt="Ilustrasi war kuliner kekinian"
               
-                className="rounded-lg shadow-md w-full max-w-[400px] h-[300px] object-cover"
+                className="rounded-lg shadow-md w-full max-w-[350px] h-[310px] object-cover"
               />
             </div>
           </div>

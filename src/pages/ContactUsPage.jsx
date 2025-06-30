@@ -1,37 +1,39 @@
 import React from "react";
-import Header from "../components/Header"; 
-import Footer from "../components/Footer"; 
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export default function ContactUsPage() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <Header />
 
-    
       <main className="flex-grow py-12 px-4 sm:px-6 lg:px-8">
-     
         <div className="max-w-7xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden md:flex min-h-[550px]">
-  
-          <div className="md:w-1/2 flex-shrink-0">
+         
+          <div className="md:w-1/2">
             <img
-              src="https://st.depositphotos.com/1017986/2197/i/450/depositphotos_21977667-stock-photo-friendly-female-helpline-operator.jpg"
-              alt="Hubungi Kami"
-              className="w-full h-full object-cover" 
+              src="/img/ContactUs.png"
+              alt="Hubungi Kami - Customer Service"
+              className="w-full h-full object-cover rounded-l-lg" 
             />
           </div>
 
-         
+          
           <div className="md:w-1/2 p-8 sm:p-12 lg:p-16 flex flex-col justify-center bg-green-50">
             <h2 className="text-3xl font-bold text-[#1A223E] mb-4 sm:mb-6 text-center md:text-left">
               Hubungi Kami
             </h2>
             <p className="text-gray-700 mb-8 sm:mb-10 text-center md:text-left leading-relaxed">
-              Punya pertanyaan atau masukan? Jangan ragu untuk menghubungi kami! Kami siap membantu Anda.
+              Punya pertanyaan atau masukan? Jangan ragu untuk menghubungi kami!
+              Kami siap membantu Anda.
             </p>
 
-            <form className="space-y-8"> 
+            <form className="space-y-8">
               <div>
-                <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="fullName"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Nama Lengkap <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -46,7 +48,10 @@ export default function ContactUsPage() {
 
               {/* Email */}
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Email <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -61,7 +66,10 @@ export default function ContactUsPage() {
 
               {/* Pesan */}
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Pesan <span className="text-red-500">*</span>
                 </label>
                 <textarea
@@ -69,12 +77,11 @@ export default function ContactUsPage() {
                   name="message"
                   rows="6"
                   placeholder="Tulis pesan Anda di sini"
-                  className="mt-1 block w-full px-4 py-2.5 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-base transition-all duration-200"
+                  className="mt-1 block w-full px-4 py-2.5 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-base transition-all duration-200 resize-y"
                   required
                 ></textarea>
               </div>
 
-             
               <div>
                 <button
                   type="submit"

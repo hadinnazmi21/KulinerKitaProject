@@ -9,7 +9,7 @@ const teamMembers = [
     title: "Co-Founder & Co-CEO",
     description:
       "Visionary leader with a passion for technology and innovation. Berpengalaman lebih dari 20 tahun membangun perusahaan teknologi global.",
-    image: "/img/hadin1.jpg",
+    image: "/img/hadin1.jpg", // Pastikan path gambar ini benar
     animation: {
       initial: { x: -200, opacity: 0 },
       animate: { x: 0, opacity: 1 },
@@ -26,7 +26,7 @@ const teamMembers = [
     title: "Co-Founder & Co-CEO",
     description:
       "Ahli strategi dengan fokus pada pertumbuhan bisnis dan budaya perusahaan. Berperan penting dalam ekspansi internasional.",
-    image: "/img/kela.jpg",
+    image: "/img/kela.jpg", // Pastikan path gambar ini benar
     animation: {
       initial: { x: 200, opacity: 0 },
       animate: { x: 0, opacity: 1 },
@@ -43,10 +43,8 @@ const teamMembers = [
 export default function OurTeamPage() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
-     
       <Header />
 
- 
       <main className="flex flex-col items-center py-12 sm:py-16 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-grow"> 
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-gray-800 text-center">
           Tim Developer Kuliner Kita
@@ -57,7 +55,7 @@ export default function OurTeamPage() {
           kolaboratif dan kreativitas, kami terus berinovasi demi pengalaman
           terbaik pengguna.
         </p>
-   
+        
         <div className="flex flex-col md:flex-row gap-8 sm:gap-12 md:gap-16 w-full justify-center items-center">
           {teamMembers.map(({ name, title, description, image, animation }) => (
             <div
@@ -67,8 +65,8 @@ export default function OurTeamPage() {
               <motion.img
                 src={image}
                 alt={name}
-              
-                className="w-full h-auto max-w-[200px] sm:max-w-[250px] md:max-w-[300px] object-contain bg-transparent mb-4" 
+                // --- UKURAN GAMBAR FIXED DAN KONSISTEN ---
+                className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full object-cover border-4 border-white shadow-lg mb-4" 
                 initial={animation.initial}
                 animate={animation.animate}
                 transition={animation.transition}
