@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import "./assets/tailwind.css";
 import { Route, Routes } from "react-router-dom";
+import PantunPage from "./pages/PantunPage";
 
 // Semua komponen sekarang diimpor secara lazy
 const PageHome = React.lazy(() => import("./pages/PageHome"));
@@ -57,6 +58,7 @@ function App() {
           <Route path="/CheckoutPage" element={<CheckoutPage/>} />
           <Route path="/ArtikelList" element={<ArtikelList/>} />
           <Route path="/artikel/:id" element={<ArtikelDetail/>} />
+          <Route path="/PantunPage" element={<PantunPage/>} />
 
           
         </Route>

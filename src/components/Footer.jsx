@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="bg-white text-gray-500 px-6 pt-10">
+    <footer className="bg-gradient-to-b from-green-600 to-white text-gray-700 px-6 pt-10">
      
       <div className="border-t border-gray-300 mb-10"></div>
 

@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const API_URL = "https://cqhgxggulbpxckhxzvsq.supabase.co/rest/v1/produk";
+const API_URL = "https://eusvdwopkvcukkkgsbla.supabase.co/rest/v1/produk";
 const API_KEY =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNxaGd4Z2d1bGJweGNraHh6dnNxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDg5MDg2MzEsImV4cCI6MjA2NDQ4NDYzMX0.CCiEC90rSRj76_OlaGCWjRo9fosYGPE6uRHfcankW-U";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV1c3Zkd29wa3ZjdWtra2dzYmxhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA0NTU3MDcsImV4cCI6MjA3NjAzMTcwN30.-7EHFvu-r_emi9M0S3VJtrsjQ6-iqjEybSzqir2SBRQ";
 
 const headers = {
   apikey: API_KEY,

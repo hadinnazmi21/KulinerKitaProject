@@ -16,8 +16,11 @@ export default function TestimoniPage() {
   const fetchData = async () => {
     try {
       setLoading(true);
+      // Catatan: Pastikan notesAPI.fetchNotes() mengambil data dari tabel 'testimoni'
       const result = await notesAPI.fetchNotes();
       setData(result);
+      // DEBUG: Cek apakah data sudah berhasil diambil
+      // console.log("Data testimoni berhasil diambil:", result);
     } catch (err) {
       setError("Gagal memuat testimoni.");
       console.error("Error fetching testimonials:", err);
@@ -56,14 +59,17 @@ export default function TestimoniPage() {
         ) : data.length === 0 ? (
           <EmptyState text="Belum ada testimoni. Bagikan pengalaman Anda di halaman detail produk!" />
         ) : (
-          /* Bagian Daftar Testimoni - Sudah Responsif */
+          /* Bagian Daftar Testimoni - Perbaikan pada mapping data */
           <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {paginated.map((item) => (
               <TestimoniCard
                 key={item.id}
                 nama={item.nama}
-                foto={item.foto}
-                deskripsi={item.deskripsi}
+                // PERBAIKAN: Kolom 'pesan' dari DB dimapping ke prop 'deskripsi'
+                deskripsi={item.pesan} 
+                // PERBAIKAN: Jika kolom 'foto' tidak ada di DB, berikan nilai default 
+                // atau hapus prop ini jika TestimoniCard tidak wajib memilikinya.
+                foto={item.foto || "/placeholder-avatar.png"} 
               />
             ))}
           </section>
