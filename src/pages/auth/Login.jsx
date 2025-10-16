@@ -1,16 +1,31 @@
 import { useState } from "react";
+import { loginAPI } from "../../services/loginAPI";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+  const [successMsg, setSuccessMsg] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Logika autentikasi bisa ditambahkan di sini jika perlu
-    console.log("Login dengan:", { email, password });
+    setErrorMsg("");
+    setSuccessMsg("");
+    setLoading(true);
 
-    // Redirect ke halaman utama setelah login
-    window.location.href = "https://project-uas-fawn-pi.vercel.app/";
+    try {
+      // 🔹 Gunakan username & password (bukan email)
+      const user = await loginAPI.login(username, password);
+      console.log("Login berhasil:", user);
+
+      // ✅ Notifikasi sukses tanpa redirect
+      setSuccessMsg(`✅ Berhasil login! Selamat datang, ${user.username}!`);
+    } catch (err) {
+      setErrorMsg(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -19,22 +34,35 @@ export default function Login() {
         <h2 className="text-2xl font-bold text-center mb-6 text-gray-900">
           Masuk ke Akun Anda
         </h2>
+
+        {errorMsg && (
+          <div className="bg-red-100 text-red-600 p-3 rounded mb-4 text-center">
+            {errorMsg}
+          </div>
+        )}
+
+        {successMsg && (
+          <div className="bg-green-100 text-green-700 p-3 rounded mb-4 text-center">
+            {successMsg}
+          </div>
+        )}
+
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label
-              htmlFor="email"
+              htmlFor="username"
               className="block text-sm font-medium text-gray-700"
             >
-              Email
+              Username
             </label>
             <input
-              id="email"
-              type="email"
+              id="username"
+              type="text"
               required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
-              placeholder="you@example.com"
+              placeholder="Masukkan username"
             />
           </div>
 
@@ -58,9 +86,10 @@ export default function Login() {
 
           <button
             type="submit"
+            disabled={loading}
             className="w-full bg-green-500 text-white py-2 rounded-md text-lg font-semibold hover:bg-green-600 transition"
           >
-            Masuk
+            {loading ? "Memeriksa..." : "Masuk"}
           </button>
         </form>
 
