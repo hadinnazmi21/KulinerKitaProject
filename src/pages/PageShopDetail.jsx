@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { produkAPI } from "../services/produkAPI";
-import { notesAPI } from "../services/testimoniAPI"; // <--- MENGGUNAKAN API YANG SUDAH ADA (notesAPI)
+import { notesAPI } from "../services/testimoniAPI"; // API yang menyimpan ulasan
 
 // Data testimoni statis
 const staticTestimonials = [
@@ -45,10 +45,10 @@ export default function PageShopDetail() {
   const [loading, setLoading] = useState(true);
   const [quantity, setQuantity] = useState(1);
 
-  // State lokal untuk form ulasan
+  // State untuk form ulasan
   const [reviewFormName, setReviewFormName] = useState('');
-  const [reviewFormText, setReviewFormText] = useState('');
-  const [reviewFormPhoto, setReviewFormPhoto] = useState('');
+  const [reviewFormMessage, setReviewFormMessage] = useState('');
+  const [reviewFormAvatar, setReviewFormAvatar] = useState('');
   const [isSubmittingReview, setIsSubmittingReview] = useState(false);
   const [reviewSubmissionError, setReviewSubmissionError] = useState('');
 
@@ -67,7 +67,13 @@ export default function PageShopDetail() {
       .finally(() => setLoading(false));
   }, [id]);
 
-  if (loading) return <div className="min-h-screen flex items-center justify-center bg-gray-50 text-gray-700 text-lg">Loading...</div>;
+  if (loading)
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 text-gray-700 text-lg">
+        Loading...
+      </div>
+    );
+
   if (error)
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 text-red-600 text-lg">
@@ -80,6 +86,7 @@ export default function PageShopDetail() {
         </button>
       </div>
     );
+
   if (!product) return null;
 
   const decrement = () => setQuantity((q) => Math.max(1, q - 1));
@@ -87,60 +94,64 @@ export default function PageShopDetail() {
 
   const staticProductDescription = `Nikmati pengalaman kuliner tak terlupakan dengan beragam pilihan makanan premium dari KulinerKita. Setiap produk dipilih dengan cermat untuk memastikan kualitas dan rasa terbaik, cocok untuk setiap momen spesial Anda. Dari hidangan tradisional hingga kreasi modern, kami hadirkan yang terbaik langsung ke pintu Anda. Dengan bahan-bahan segar dan proses pengolahan higienis, kami berkomitmen menyajikan kebahagiaan di setiap gigitan.`;
 
-  
+  // ======================================================
+  //  🔹 HANDLE SUBMIT ULASAN (Nama, Pesan, Avatar)
+  // ======================================================
   const handleReviewSubmit = async (e) => {
     e.preventDefault();
 
-    if (!reviewFormName || !reviewFormText) {
-      setReviewSubmissionError("Nama dan ulasan tidak boleh kosong!");
+    if (!reviewFormName || !reviewFormMessage) {
+      setReviewSubmissionError("Nama dan pesan tidak boleh kosong!");
       return;
     }
-    setReviewSubmissionError(''); 
 
-    
+    setReviewSubmissionError('');
+    setIsSubmittingReview(true);
+
+    // Data dikirim sesuai kolom di Supabase
     const reviewDataToSend = {
-      nama: reviewFormName, 
-      deskripsi: reviewFormText, 
-      foto: reviewFormPhoto, 
-      created_at: new Date().toISOString(), 
+      nama: reviewFormName,
+      pesan: reviewFormMessage,
+      avatar: reviewFormAvatar || null,
+      created_at: new Date().toISOString(),
     };
 
     try {
-      setIsSubmittingReview(true);
-      await notesAPI.createNote(reviewDataToSend); 
-
+      console.log("Mengirim data ulasan:", reviewDataToSend);
+      await notesAPI.createNote(reviewDataToSend);
       alert(`Ulasan dari ${reviewFormName} berhasil dikirim!`);
-      
-      // Reset form setelah berhasil submit
+
+      // Reset form setelah berhasil
       setReviewFormName('');
-      setReviewFormText('');
-      setReviewFormPhoto('');
+      setReviewFormMessage('');
+      setReviewFormAvatar('');
 
-
-    } catch (apiError) {
-      console.error("Error submitting review:", apiError);
-      setReviewSubmissionError("Gagal mengirim ulasan. Silakan coba lagi.");
+    } catch (err) {
+      console.error("Error saat kirim ulasan:", err);
+      setReviewSubmissionError("Gagal mengirim ulasan. Coba lagi nanti.");
     } finally {
       setIsSubmittingReview(false);
     }
   };
 
+  // ======================================================
+  //  🔹 TAMPILAN HALAMAN
+  // ======================================================
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       <Header />
 
       <main className="flex-grow py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-lg p-6 sm:p-8 md:p-10 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-12">
-          {/* Left: Images */}
+          {/* LEFT: GAMBAR PRODUK */}
           <div className="flex flex-col gap-4 items-center">
             <img
               src={product.foto}
               alt={product.nama}
               className="w-full h-64 sm:h-80 md:h-96 object-cover rounded-lg shadow-md"
             />
-            {/* Thumbnail list */}
             <div className="flex gap-2 overflow-x-auto w-full justify-center md:justify-start py-2">
-              {[product.foto, product.foto, product.foto, product.foto].map((src, i) => (
+              {[product.foto, product.foto, product.foto].map((src, i) => (
                 <img
                   key={i}
                   src={src}
@@ -151,71 +162,37 @@ export default function PageShopDetail() {
             </div>
           </div>
 
-          {/* Right: Details */}
+          {/* RIGHT: DETAIL PRODUK */}
           <div className="flex flex-col gap-3 sm:gap-4">
-            {/* Nama & Rating */}
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight text-gray-900">{product.nama}</h1>
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm sm:text-base text-gray-600">
-              <span className="flex items-center gap-1 text-yellow-500">
-                ⭐⭐⭐⭐⭐ <span className="text-gray-600">4.9</span>
-              </span>
-              <span>•</span>
-              <span>1.2rb Penilaian</span>
-              <span>•</span>
-              <span>3rb+ Terjual</span>
-            </div>
+            <h1 className="text-3xl font-bold text-gray-900">{product.nama}</h1>
+            <p className="text-gray-600 text-base">{product.deskripsi}</p>
 
-            {/* Harga */}
-            <div className="bg-orange-50 px-4 sm:px-6 py-4 sm:py-6 rounded-lg border border-orange-200 my-2">
-              <p className="text-3xl sm:text-4xl lg:text-5xl text-orange-600 font-extrabold">
+            <div className="bg-orange-50 px-6 py-4 rounded-lg border border-orange-200 mt-3">
+              <p className="text-4xl text-orange-600 font-extrabold">
                 Rp {parseInt(product.harga).toLocaleString("id-ID")}
               </p>
-              <p className="text-xs sm:text-sm text-gray-500 mt-1">Termasuk PPN (jika berlaku)</p>
             </div>
 
-            {/* Promo statis */}
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 bg-green-50 text-green-800 px-4 py-3 rounded-lg text-sm sm:text-base">
-              <span className="font-semibold">Gratis Ongkir</span>
-              <span className="text-gray-600">Min. belanja Rp50.000</span>
-            </div>
-
-            {/* Kuantitas */}
             <div className="flex items-center gap-4 mt-2">
-              <span className="min-w-[80px] font-medium text-gray-800 text-sm sm:text-base">Kuantitas</span>
+              <span className="font-medium text-gray-800 text-sm sm:text-base">Kuantitas</span>
               <div className="flex items-center border border-gray-300 rounded-md overflow-hidden">
-                <button
-                  onClick={decrement}
-                  className="px-3 sm:px-4 py-1.5 sm:py-2 text-lg font-bold hover:bg-gray-100 transition-colors"
-                >
-                  -
-                </button>
+                <button onClick={decrement} className="px-4 py-2 hover:bg-gray-100">-</button>
                 <input
                   type="number"
                   min="1"
                   value={quantity}
                   onChange={(e) => setQuantity(Math.max(1, Number(e.target.value)))}
-                  className="w-12 text-center text-sm sm:text-base focus:outline-none focus:ring-1 focus:ring-green-500"
+                  className="w-12 text-center"
                 />
-                <button
-                  onClick={increment}
-                  className="px-3 sm:px-4 py-1.5 sm:py-2 text-lg font-bold hover:bg-gray-100 transition-colors"
-                >
-                  +
-                </button>
+                <button onClick={increment} className="px-4 py-2 hover:bg-gray-100">+</button>
               </div>
-              <span className="text-sm text-gray-500">Stok tersedia</span>
             </div>
 
-            {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6">
-              <button
-                type="button"
-                className="flex-1 bg-amber-500 hover:bg-amber-600 text-white font-semibold py-3 sm:py-3.5 rounded-lg shadow-md transition-colors text-base sm:text-lg"
-              >
+              <button className="flex-1 bg-amber-500 hover:bg-amber-600 text-white font-semibold py-3 rounded-lg shadow-md">
                 + Keranjang
               </button>
               <button
-                type="button"
                 onClick={() =>
                   navigate("/CheckoutPage", {
                     state: {
@@ -226,14 +203,10 @@ export default function PageShopDetail() {
                         description: product.deskripsi,
                       },
                       quantity,
-                      name: "",
-                      address: "",
-                      voucher: "",
-                      discountAmount: 0,
                     },
                   })
                 }
-                className="flex-1 bg-red-600 hover:bg-red-700 text-white font-semibold py-3 sm:py-3.5 rounded-lg shadow-md transition-colors text-base sm:text-lg"
+                className="flex-1 bg-red-600 hover:bg-red-700 text-white font-semibold py-3 rounded-lg shadow-md"
               >
                 Beli Sekarang
               </button>
@@ -241,108 +214,103 @@ export default function PageShopDetail() {
           </div>
         </div>
 
-        {/* Bagian Deskripsi Produk (Statis) */}
-        <section className="max-w-6xl mx-auto bg-white rounded-xl shadow-lg p-6 sm:p-8 md:p-10 mt-8 sm:mt-12">
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">
-            Deskripsi Produk
-          </h2>
-          <p className="text-gray-700 text-base sm:text-lg leading-relaxed whitespace-pre-wrap">
-            {staticProductDescription}
-          </p>
+        {/* DESKRIPSI PRODUK */}
+        <section className="max-w-6xl mx-auto bg-white rounded-xl shadow-lg p-8 mt-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Deskripsi Produk</h2>
+          <p className="text-gray-700 leading-relaxed">{staticProductDescription}</p>
         </section>
 
-        {/* Bagian Ulasan Pembeli (Statis) */}
-        <section className="max-w-6xl mx-auto bg-white rounded-xl shadow-lg p-6 sm:p-8 md:p-10 mt-8 sm:mt-12">
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-6 sm:mb-8">
-            Ulasan Pembeli
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        {/* ULASAN PEMBELI (STASIS) */}
+        <section className="max-w-6xl mx-auto bg-white rounded-xl shadow-lg p-8 mt-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Ulasan Pembeli</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {staticTestimonials.map((testimoni) => (
-              <div key={testimoni.id} className="bg-gray-50 rounded-lg p-5 border border-gray-100 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center mb-2">
-                    <span className="text-yellow-500 mr-2">
-                      {"⭐".repeat(testimoni.rating)}
-                    </span>
-                    <span className="font-semibold text-gray-800">{testimoni.author}</span>
-                  </div>
-                  <p className="text-gray-700 text-sm sm:text-base leading-snug">
-                    "{testimoni.text}"
-                  </p>
+              <div key={testimoni.id} className="bg-gray-50 rounded-lg p-5 border border-gray-100">
+                <div className="flex items-center mb-2">
+                  <span className="text-yellow-500 mr-2">
+                    {"⭐".repeat(testimoni.rating)}
+                  </span>
+                  <span className="font-semibold text-gray-800">{testimoni.author}</span>
                 </div>
-                <p className="text-xs text-gray-500 mt-3 self-end">{testimoni.date}</p>
+                <p className="text-gray-700 text-sm sm:text-base leading-snug">
+                  "{testimoni.text}"
+                </p>
+                <p className="text-xs text-gray-500 mt-3 text-right">{testimoni.date}</p>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Bagian Formulir Tulis Ulasan (REAL) */}
-        <section className="max-w-6xl mx-auto bg-white rounded-xl shadow-lg p-6 sm:p-8 md:p-10 mt-8 sm:mt-12">
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-6 sm:mb-8">
-            Tulis Ulasan Anda
-          </h2>
+        {/* FORM ULASAN (REAL KE SUPABASE) */}
+        <section className="max-w-6xl mx-auto bg-white rounded-xl shadow-lg p-8 mt-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Tulis Ulasan Anda</h2>
+
           {reviewSubmissionError && (
-            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4 text-center">
-              <span className="block sm:inline">{reviewSubmissionError}</span>
+            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4 text-center">
+              {reviewSubmissionError}
             </div>
           )}
+
           <form onSubmit={handleReviewSubmit} className="space-y-6">
             <div>
-              <label htmlFor="reviewerName" className="block text-sm sm:text-base font-medium text-gray-700 mb-2">
+              <label className="block font-medium mb-2 text-gray-700">
                 Nama Anda <span className="text-red-500">*</span>
               </label>
               <input
                 type="text"
-                id="reviewerName"
                 value={reviewFormName}
                 onChange={(e) => setReviewFormName(e.target.value)}
-                className="w-full px-4 py-2.5 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 text-sm sm:text-base transition-all duration-200"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"
                 placeholder="Masukkan nama Anda"
                 required
                 disabled={isSubmittingReview}
               />
             </div>
+
             <div>
-              <label htmlFor="reviewText" className="block text-sm sm:text-base font-medium text-gray-700 mb-2">
-                Ulasan Anda <span className="text-red-500">*</span>
+              <label className="block font-medium mb-2 text-gray-700">
+                Pesan Ulasan <span className="text-red-500">*</span>
               </label>
               <textarea
-                id="reviewText"
-                value={reviewFormText}
-                onChange={(e) => setReviewFormText(e.target.value)}
+                value={reviewFormMessage}
+                onChange={(e) => setReviewFormMessage(e.target.value)}
                 rows="5"
-                className="w-full px-4 py-2.5 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 text-sm sm:text-base transition-all duration-200 resize-y"
-                placeholder="Bagikan pengalaman Anda tentang produk ini..."
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"
+                placeholder="Bagikan pengalaman Anda..."
                 required
                 disabled={isSubmittingReview}
               ></textarea>
             </div>
-            {/* Input Link Foto Ulasan */}
+
             <div>
-              <label htmlFor="reviewPhoto" className="block text-sm sm:text-base font-medium text-gray-700 mb-2">
-                Link Foto (Opsional)
+              <label className="block font-medium mb-2 text-gray-700">
+                Link Avatar (Opsional)
               </label>
               <input
                 type="url"
-                id="reviewPhoto"
-                value={reviewFormPhoto}
-                onChange={(e) => setReviewFormPhoto(e.target.value)}
-                className="w-full px-4 py-2.5 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 text-sm sm:text-base transition-all duration-200"
-                placeholder="Masukkan URL foto ulasan Anda (mis: dari Imgur, Google Photos)"
+                value={reviewFormAvatar}
+                onChange={(e) => setReviewFormAvatar(e.target.value)}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"
+                placeholder="Masukkan URL gambar profil Anda (jika ada)"
                 disabled={isSubmittingReview}
               />
-              {reviewFormPhoto && (
-                  <div className="mt-3 flex justify-center">
-                      <img src={reviewFormPhoto} alt="Preview Ulasan" className="w-24 h-24 object-cover rounded-lg border border-gray-200 shadow-sm" />
-                  </div>
+              {reviewFormAvatar && (
+                <div className="mt-3 flex justify-center">
+                  <img
+                    src={reviewFormAvatar}
+                    alt="Preview Avatar"
+                    className="w-24 h-24 rounded-full object-cover border border-gray-200 shadow-sm"
+                  />
+                </div>
               )}
             </div>
+
             <button
               type="submit"
               disabled={isSubmittingReview}
-              className="w-full inline-flex justify-center py-3 sm:py-3.5 px-6 border border-transparent shadow-md text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors duration-200"
+              className="w-full py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-md transition"
             >
-              {isSubmittingReview ? 'Mengirim Ulasan...' : 'Kirim Ulasan'}
+              {isSubmittingReview ? "Mengirim..." : "Kirim Ulasan"}
             </button>
           </form>
         </section>
