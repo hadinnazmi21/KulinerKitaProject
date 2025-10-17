@@ -1,3 +1,5 @@
+import React from "react";
+
 import { useEffect, useState } from "react";
 import ArtikelCard from "../components/ArtikelCard";
 import Header from "../components/Header";
